@@ -1,0 +1,69 @@
+/* =============================================== */
+/* BASIC SETUP  */
+/* =============================================== */
+@import url('https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sono:wght@200..800&display=swap');
+
+:root {
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+*::after,
+*::before,
+* {
+    box-sizing: border-box;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 62.5%;
+    font-family: 'AR One Sans', 'Roboto Mono', 'Sono', 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+/* Smooth scrolling, prevent sudden pop  */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Reset CSS styles for some elements */
+a {
+    text-decoration: none;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+/* Make SVG elements work with current color */
+svg {
+    font-size: 1rem;
+    height: 3.6rem;
+    aspect-ratio: 1 / 1;
+}
+
+svg path,
+svg ellipse {
+    fill: currentColor;
+}
+
+/* Improve line wrapping + avoid text overflows */
+p {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+    text-wrap: balance;
+}

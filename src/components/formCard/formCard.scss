@@ -1,0 +1,33 @@
+.formCard {
+    @include flexColumn;
+    // background-color: $snow_white_color;
+
+    // min-width: $form_card_width;
+    // padding: $padding_lg;
+    // border-radius: $padding_md;
+    // box-shadow: 8px 6px 16px -6px rgba($color: #000000, $alpha: 0.6);
+    // @include normalAnimation;
+}
+
+.formContent {
+    background-color: $snow_white_color;
+    overflow: hidden;
+    padding: 0;
+    max-height: 0px;
+
+    &.expanded {
+        // display: flex;
+        max-height: 1000px;
+        animation: expandFormContent;
+        @include normalAnimation;
+        transform-origin: top;
+
+        padding: $padding_xxl;
+        border-bottom-left-radius: $padding_md;
+        border-bottom-right-radius: $padding_md;
+
+        & > *:first-child {
+            margin-top: clamp(6px, 0.6em, 8px);
+        }
+    }
+}

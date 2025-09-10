@@ -1,0 +1,58 @@
+.addBtn {
+    position: relative;
+    @include flexCenter;
+    gap: clamp(4px, 0.56em, 6px);
+    font-size: $fs_normal_md;
+    font-weight: 600;
+    color: $white_text;
+    padding: 0.56em 0.6em;
+
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-color: transparent;
+    z-index: 0;
+    @include normalTransition;
+
+    .cardBtnIcon {
+        height: $fs_normal_xl;
+    }
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        height: 100%;
+        top: 0;
+        @include shortTransition;
+        transition-delay: 160ms;
+    }
+
+    &::before {
+        width: 100%;
+        left: 0;
+        z-index: -1;
+        // border-radius: 6px;
+        background-color: $primary_dark_color;
+    }
+    &::after {
+        width: 100%;
+        z-index: 1;
+        border-top: 2.6px solid $primary_dark_color;
+        border-bottom: 2.6px solid $primary_dark_color;
+        transform: rotateY(90deg);
+        transition-delay: 200ms;
+    }
+
+    &:hover {
+        color: $primary_dark_color;
+        transform: scale(1.03);
+        &::before {
+            transform: scale(0, 1);
+        }
+        &::after {
+            transform: rotateY(0);
+        }
+    }
+}

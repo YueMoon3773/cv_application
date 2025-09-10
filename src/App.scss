@@ -1,0 +1,13 @@
+.app {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    @include flexCenter;
+    gap: clamp(50px, 5.5em, 66px);
+
+    background-color: $gray_color;
+
+    .sideWrapper {
+    }
+}
+

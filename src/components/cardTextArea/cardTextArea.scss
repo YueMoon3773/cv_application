@@ -1,0 +1,121 @@
+.textAreaWrapper {
+    position: relative;
+    @include flexCenter;
+    isolation: isolate;
+    z-index: 1;
+}
+
+.textArea {
+    width: 100%;
+    height: 100%;
+
+    resize: none;
+    overflow-y: auto;
+
+    font-size: $fs_normal_md;
+    font-weight: 500;
+    color: $black_text;
+    caret-color: $primary_darker_color;
+
+    background: transparent;
+    border: 1.6px solid transparent;
+    border: 1.6px solid $primary_darker_color;
+    padding: 0.46em 0.6em;
+    @include normalTransition;
+    outline: none;
+
+    &::placeholder {
+        color: transparent;
+        font-size: $fs_normal_sm;
+    }
+
+    &:focus::placeholder {
+        color: $dark_gray_color;
+    }
+
+    &:focus ~ .textAreaFocusBorders::before,
+    &:focus ~ .textAreaFocusBorders::after {
+        width: 100%;
+    }
+
+    &:focus ~ .textAreaFocusBorders span::before,
+    &:focus ~ .textAreaFocusBorders span::after {
+        height: 100%;
+    }
+
+    &:focus ~ .textAreaFocusBg {
+        width: 100%;
+        left: 0;
+    }
+
+    &:focus ~ .textAreaLabel,
+    &:not(:placeholder-shown) ~ .textAreaLabel {
+        font-size: $fs_normal_sm;
+        font-weight: 600;
+        color: $primary_dark_color;
+        cursor: default;
+
+        // left: 0;
+        // top: -24px;
+        transform: translate(clamp(-4px, -0.6em, -6px), clamp(-28px, -2.86em, -32px));
+        @include normalTransition;
+    }
+}
+
+.textAreaLabel {
+    position: absolute;
+    font-size: $fs_normal_md;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: $dark_gray_color;
+
+    top: 0.46em;
+    left: clamp(6px, 0.76em, 8px);
+    z-index: -1;
+    @include normalTransition;
+}
+
+.textAreaFocusBorders {
+    span::after,
+    span::before,
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: $inpBorderWidth;
+
+        background-color: $primary_color;
+        @include longTransition;
+    }
+
+    span::after,
+    span::before {
+        width: $inpBorderWidth;
+        height: 0;
+    }
+
+    span::after,
+    &::after {
+        top: auto;
+        bottom: 0;
+        left: auto;
+        right: 0;
+    }
+}
+
+.textAreaFocusBg {
+    position: absolute;
+    content: '';
+
+    top: 0;
+    left: 50%;
+    width: 0;
+    height: 100%;
+
+    z-index: -1;
+    background-color: $light_gray_color;
+    @include normalTransition;
+}

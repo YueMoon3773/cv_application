@@ -1,0 +1,13 @@
+.formContent.expanded:has(.personalInfo) {
+    @include flexColumn;
+    align-items: flex-end;
+    gap: clamp(20px, 2.4em, 26px);
+    .personalInfo {
+        width: 100%;
+        @include displayGrid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(auto-fit, 1fr);
+        row-gap: clamp(26px, 2.66em, 28px);
+        column-gap: clamp(14px, 1.6em, 18px);
+    }
+}

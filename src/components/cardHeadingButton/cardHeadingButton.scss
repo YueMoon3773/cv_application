@@ -1,0 +1,102 @@
+.headingBtnWrapper {
+    @include flexCenter;
+    gap: clamp(16px, 1.8em, 20px);
+
+    &:has(.mainHeadingBtn) {
+        min-width: $form_card_width;
+        padding: $padding_lg;
+        background-color: $snow_white_color;
+        &:has(.expanded) {
+            border-top-left-radius: $padding_md;
+            border-top-right-radius: $padding_md;
+        }
+        &:not(:has(.expanded)) {
+            border-radius: $padding_md;
+        }
+    }
+}
+
+.cardHeadingButton {
+    @include flexCenter;
+    justify-content: space-between;
+    gap: 6em;
+    width: 100%;
+    padding: 1.16em 0.86em;
+    @include normalTransition;
+    transition-delay: 160ms;
+
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+
+    & > * {
+        @include flexCenter;
+        font-size: $fs_normal_md;
+        font-weight: 760;
+        letter-spacing: 0.01em;
+        color: $black_text;
+        gap: clamp(6px, 0.66em, 8px);
+        @include normalTransition;
+        transition-delay: 160ms;
+    }
+    & > svg {
+        height: $fs_heading_sm;
+        transform: rotate(0);
+        @include normalTransition;
+        // transition-delay: 160ms;
+    }
+    & > * > svg {
+        height: $fs_heading_sm;
+        @include normalTransition;
+        transition-delay: 160ms;
+    }
+
+    &:hover,
+    &:hover.expanded {
+        background-color: $primary_light_color;
+        & > * {
+            color: $snow_white_color;
+        }
+    }
+    &.expanded {
+        background-color: $primary_lighter_color;
+        & > * {
+            color: $primary_darker_color;
+        }
+
+        & > svg {
+            transform: rotate(90deg);
+        }
+    }
+}
+
+.mainHeadingBtn {
+    &:hover,
+    &:hover.expanded {
+        background-color: $primary_color;
+    }
+    &.expanded {
+        background-color: $primary_light_color;
+    }
+}
+
+.deleteBtn {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: calc($fs_heading_sm * 2);
+    aspect-ratio: 1 / 1;
+    cursor: pointer;
+
+    & > svg {
+        height: $fs_heading_sm;
+        color: $red_color;
+        @include shortTransition;
+
+        &:hover {
+            color: $dark_red_color;
+        }
+    }
+}

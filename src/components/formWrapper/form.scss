@@ -1,0 +1,42 @@
+.formWrapper {
+    align-self: flex-start;
+}
+
+.formHeader {
+    @include flexColumn;
+    @include flexCenter;
+    gap: max(0px, 1.2em);
+    margin: clamp(46px, 4.66em, 50px) 0 clamp(40px, 4em, 46px);
+    cursor: default;
+}
+
+.formHeading {
+    @include flexCenter;
+    gap: clamp(12px, 1.8em, 20px);
+    font-size: $fs_heading_xl;
+    color: $dark_blue_color;
+
+    @include normalTransition;
+    @include animationAndTransitionTiming;
+
+    .formHeadingIcon {
+        height: $fs_heading_xl;
+        color: $dark_blue_color;
+    }
+
+    &:hover {
+        color: $blue_color;
+    }
+
+    &:hover .formHeadingIcon {
+        animation: logoBounce 660ms ease-in-out 0s, logoStretch 660ms ease-in-out 860ms;
+        filter: none;
+        color: $blue_color;
+    }
+}
+
+.formSlogan {
+    font-size: $fs_normal_lg;
+    font-weight: 600;
+    color: $blue_color;
+}
