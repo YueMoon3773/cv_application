@@ -1,9 +1,13 @@
 .resumeDisplay {
+    align-self: flex-start;
     position: sticky;
-    top: 0;
+    top: 2rem;
+    height: $resume_preview_max_height;
+    width: calc($resume_preview_max_height * $resume_ratio);
 }
 
 .resume {
+    width: 100%;
     aspect-ratio: 1 / 1.42;
 
     background-color: $white_color;

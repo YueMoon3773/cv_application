@@ -1,0 +1,11 @@
+.formContent.expanded:has(.formController) {
+    @include flexColumn;
+    align-items: stretch;
+
+    .formController {
+        margin-top: clamp(10px, 1.2em, 14px);
+        width: 100%;
+        @include flexColumn;
+        gap: $form_card_sections_gap;
+    }
+}

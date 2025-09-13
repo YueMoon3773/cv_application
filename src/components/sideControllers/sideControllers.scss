@@ -1,7 +1,10 @@
 .sideControllersWrapper {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    position: fixed;
+    @include flexColumn;
+    gap: $form_card_content_column_gap;
+    bottom: $side_btns_position;
+    left: $side_btns_position;
+    font-size: 1.6rem;
 
     z-index: 100;
 }

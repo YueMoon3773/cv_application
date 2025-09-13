@@ -1,11 +1,15 @@
 import { useState } from 'react';
 
+import SideBtn from '../sideBtn/sideBtn';
+
 import './sideControllers.scss';
 
 const SideControllers = () => {
     return (
         <div className="sideControllersWrapper">
-            <h1>hiasdfsad</h1>
+            <SideBtn btnType="preview" />
+            <SideBtn btnType="download" />
+            <SideBtn btnType="print" />
         </div>
     );
 };

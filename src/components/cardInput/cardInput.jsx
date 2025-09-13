@@ -13,8 +13,9 @@ const CardInput = ({
     setData,
     dataToChange,
     indexOfDataToChange = null,
+    customOnChange = null,
 }) => {
-    const handleInput = (dataToChange, inpValue) => {};
+    const handleInput = (dataToChange, inpValue, customOnChange) => {};
 
     return (
         <div className={`inpWrapper ${isOnTwoCol == true ? 'spanTwoCol' : ''}`}>
@@ -24,9 +25,7 @@ const CardInput = ({
                 placeholder={inpPlaceholder}
                 value={inpValue}
                 required={isInpRequired}
-                onChange={(e) => {
-                    handleInput(dataToChange, e.target.value);
-                }}
+                onChange={customOnChange || ((e) => handleInput(dataToChange, e.target.value))}
             />
             <label className="inputLabel">{isInpRequired === true ? `${labelContent}*` : labelContent}</label>
             <span className="inpFocusBorders">

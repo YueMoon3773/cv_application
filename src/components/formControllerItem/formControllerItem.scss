@@ -1,0 +1,25 @@
+.formControllerItem {
+    border: 1px solid $primary_color;
+    border-radius: $padding_sm;
+    position: relative;
+}
+
+.itemHeading {
+    display: inline-block;
+    position: absolute;
+    top: $form_controller_heading_top;
+    left: $form_controller_heading_left;
+
+    font-size: $fs_normal_xl;
+    color: $primary_color;
+    cursor: default;
+    background-color: $snow_white_color;
+}
+
+.controllerItemContent {
+    @include flexCenter;
+    align-items: stretch;
+    justify-content: space-around;
+    margin-top: $padding_xxl;
+    padding: $padding_xxl;
+}

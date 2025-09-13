@@ -6,7 +6,7 @@ const database = () => {
         profile: '',
         phone: '',
         email: '',
-        website: [],
+        website: '',
         github: '',
         location: '',
         experiences: [],
@@ -32,8 +32,8 @@ const database = () => {
     };
 
     let userData = { ...mainDataStructure };
-    userData.website.push('a');
-    userData.website.push('b');
+    // userData.website.push('a');
+    // userData.website.push('b');
 
     const sampleData1 = {
         firstName: 'Mike',
@@ -43,7 +43,7 @@ const database = () => {
             'Energetic and resourceful scarer with over 10 years of experience at Monsters, Inc. Hard-working, one-eyed monster with a big heart and even bigger dreams. Skilled at teamwork, laugh energy generation, and keeping best friend Sulley out of trouble. Passionate about making the human world less scary and the monster world more sustainable.',
         phone: '555-123-1313',
         email: 'mike.wazowski@monstersinc.com',
-        website: ['monstersinc.com', 'scarefloor.com', 'laughsforlife.org'],
+        website: 'monstersinc.com',
         github: 'github.com/Mike-Wazowski-Official',
         location: 'Monstropolis, Monster World',
         experiences: [
@@ -53,6 +53,7 @@ const database = () => {
                     'Senior Co-President & Chief Executive Vice-Deputy Administrative Director of Comedy Resources Management',
                 startDate: '2013',
                 endDate: 'Present',
+                projectTitle: 'The Laughter Initiative',
                 description: [
                     'Spearheaded the company-wide transition from scream-based to laughter-based energy, revolutionizing the monster world’s power source and saving the company from a major energy crisis.',
                     'Collaborated with James P. Sullivan to lead the company to new heights of success, setting new records for energy production and corporate morale.',
@@ -64,6 +65,7 @@ const database = () => {
                 position: 'Scare Assistant',
                 startDate: '2001',
                 endDate: '2013',
+                projectTitle: 'Top Scarer Support System',
                 description: [
                     'Managed all logistics and administrative duties for Monsters, Inc.’s top scarer, James P. Sullivan, ensuring optimal performance on the Scare Floor.',
                     'Analyzed and organized scare data, maintaining meticulous records to optimize scare techniques and maximize scream energy output.',
@@ -75,6 +77,7 @@ const database = () => {
                 position: 'Mailroom Clerk',
                 startDate: '1988',
                 endDate: '2001',
+                projectTitle: 'Monsters, Inc. Mail Stream Optimization',
                 description: [
                     'Efficiently sorted and delivered all incoming and outgoing mail for the company, demonstrating an early commitment to hard work and attention to detail.',
                     'Leveraged knowledge of company layout and personnel to ensure timely and accurate delivery of important documents and correspondence.',
@@ -85,6 +88,7 @@ const database = () => {
                 position: 'Scare Games Competitor',
                 startDate: 'College Years',
                 endDate: 'Graduation',
+                projectTitle: 'Manage team',
                 description: [
                     'Led underdog fraternity to victory in the annual Scare Games.',
                     'Demonstrated teamwork, persistence, and creative scare tactics.',
@@ -145,7 +149,7 @@ const database = () => {
             'Accomplished and charismatic scarer with a natural talent for leadership. A large, furry, and good-hearted monster known as "Sulley." Known for breaking company scare records, championing the transition to laugh energy, and protecting both monsters and humans. Loyal, dependable, and always ready to roar into action.',
         phone: '800-555-0100',
         email: 'james.sullivan@monstersinc.com',
-        website: ['monstersinc.com', 'scarefloor.com', 'laughsforlife.org'],
+        website: 'monstersinc.com',
         github: 'github.com/jamespsullivan',
         location: 'Monstropolis, Monster World',
         experiences: [
@@ -154,6 +158,7 @@ const database = () => {
                 position: 'Senior Co-President & Chief Executive Officer of Laughter Resources',
                 startDate: '2013',
                 endDate: 'Present',
+                projectTitle: 'The Laughter Initiative',
                 description: [
                     'Co-led the successful transition of Monsters, Inc. from scream-based to laughter-based energy production, a move that revitalized the company and solved a major energy crisis.',
                     'Established new training protocols and corporate values centered on positive engagement and creative humor, fostering a collaborative and productive work environment.',
@@ -165,6 +170,7 @@ const database = () => {
                 position: 'Top Scarer',
                 startDate: '2001',
                 endDate: '2013',
+                projectTitle: 'The Scare Floor Optimization Project',
                 description: [
                     'Held the prestigious title of "Top Scarer" for over a decade, consistently breaking company records for scream energy output.',
                     'Mentored new recruits and served as a role model for aspiring scarers, showcasing an impressive combination of natural talent and disciplined technique.',
@@ -176,6 +182,7 @@ const database = () => {
                 position: 'Mailroom Clerk',
                 startDate: '1988',
                 endDate: '2001',
+                projectTitle: 'Monsters, Inc. Mail Stream Optimization',
                 description: [
                     'Efficiently sorted and delivered all incoming and outgoing mail for the company, demonstrating an early commitment to hard work and attention to detail.',
                     'Leveraged knowledge of company layout and personnel to ensure timely and accurate delivery of important documents and correspondence.',
@@ -186,6 +193,7 @@ const database = () => {
                 position: 'Scare Games Champion',
                 startDate: 'College Years',
                 endDate: 'Graduation',
+                projectTitle: 'Scare Games Performance Leadership',
                 description: [
                     'Competed alongside Mike Wazowski to win the Scare Games against all odds.',
                     'Demonstrated courage, adaptability, and resilience.',

@@ -12,16 +12,17 @@ import {
     AdditionalInfoIcon,
     LanguageIcon,
     CertificateIcon,
+    ControllerIcon,
 } from '../../assets/data/svgIcons';
 
 import './cardHeadingButton.scss';
 
-const CardHeadingButton = ({ buttonContent, isMainHeadingButton = true, isMainBtnExpanded, handleExpand }) => {
+const CardHeadingButton = ({ btnContent, isMainHeadingButton = true, isMainBtnExpanded, handleExpand }) => {
     let btnIcon = null;
     // const [isMainBtnExpanded, setIsMainBtnExpanded] = useState(false);
     const [hideDeleteFullBtn, setHideDeleteFullBtn] = useState(true);
 
-    switch (buttonContent) {
+    switch (btnContent) {
         case 'Personal Information':
             btnIcon = <PersonalInfoIcon />;
             break;
@@ -31,7 +32,7 @@ const CardHeadingButton = ({ buttonContent, isMainHeadingButton = true, isMainBt
         case 'Education':
             btnIcon = <EducationIcon />;
             break;
-        case 'Work Experience':
+        case 'Work Experiences':
             btnIcon = <WorkExperienceIcon />;
             break;
         case 'Skills':
@@ -45,6 +46,9 @@ const CardHeadingButton = ({ buttonContent, isMainHeadingButton = true, isMainBt
             break;
         case 'Language':
             btnIcon = <LanguageIcon />;
+            break;
+        case 'Controller':
+            btnIcon = <ControllerIcon />;
             break;
         default:
             btnIcon = null;
@@ -62,7 +66,7 @@ const CardHeadingButton = ({ buttonContent, isMainHeadingButton = true, isMainBt
                     >
                         <div>
                             {btnIcon === null ? null : btnIcon}
-                            {buttonContent}
+                            {btnContent}
                         </div>
                         <ArrowIcon />
                     </button>
@@ -72,10 +76,11 @@ const CardHeadingButton = ({ buttonContent, isMainHeadingButton = true, isMainBt
                     <button
                         type="button"
                         className={`cardHeadingButton ${isMainBtnExpanded === true ? 'expanded' : ''}`}
+                        onClick={handleExpand}
                     >
                         <div>
-                            {btnIcon === null ? null : btnIcon}
-                            {buttonContent}
+                            {btnIcon}
+                            {btnContent || ''}
                         </div>
                         <ArrowIcon />
                     </button>

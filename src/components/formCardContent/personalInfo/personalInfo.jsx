@@ -1,13 +1,11 @@
 import { useState } from 'react';
 
-import database from '../../../assets/data/dataManager';
-
 import CardInput from '../../cardInput/cardInput';
 import AddBtn from '../../addButton/addButton';
 
 import './personalInfo.scss';
 
-const PersonalInfo = ({ data, setData, isExpanded = false }) => {
+const PersonalInfo = ({ isExpanded = false, data, setData }) => {
     return (
         <div className={`formContent ${isExpanded === true ? 'expanded' : ''}`}>
             <div className="personalInfo">
@@ -80,38 +78,20 @@ const PersonalInfo = ({ data, setData, isExpanded = false }) => {
                     setData={setData}
                     dataToChange=""
                 />
-                {data.getUserData().website.length === 0 ? (
-                    <CardInput
-                        labelContent="Personal website"
-                        inpType="url"
-                        inpPlaceholder="Your personal website. Ex: https://monstersinc.com"
-                        inpValue="https://monstersinc.com"
-                        isOnTwoCol={true}
-                        data={data}
-                        setData={setData}
-                        dataToChange=""
-                    />
-                ) : (
-                    data.getUserData().website.map((web, index) => {
-                        return (
-                            <CardInput
-                                labelContent={`Personal website ${index + 1}`}
-                                inpType="url"
-                                inpPlaceholder="Your personal website. Ex: https://monstersinc.com"
-                                inpValue={web}
-                                isOnTwoCol={true}
-                                key={index}
-                                data={data}
-                                setData={setData}
-                                dataToChange=""
-                            />
-                        );
-                    })
-                )}
+                <CardInput
+                    labelContent="Personal website"
+                    inpType="url"
+                    inpPlaceholder="Your personal website. Ex: https://monstersinc.com"
+                    inpValue="https://monstersinc.com"
+                    isOnTwoCol={true}
+                    data={data}
+                    setData={setData}
+                    dataToChange=""
+                />
             </div>
-            <div className="btnsWrapper">
-                <AddBtn addBtnContent="Add website" />
-            </div>
+            {/* <div className="btnsWrapper">
+                <AddBtn addBtnContent="Add website" data={data} setData={setData} />
+            </div> */}
         </div>
     );
 };

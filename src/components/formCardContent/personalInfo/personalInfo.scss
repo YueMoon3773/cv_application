@@ -1,13 +1,15 @@
 .formContent.expanded:has(.personalInfo) {
     @include flexColumn;
-    align-items: flex-end;
-    gap: clamp(20px, 2.4em, 26px);
+    // align-items: flex-end;
+    align-items: stretch;
+    // gap: clamp(20px, 2.4em, 26px);
     .personalInfo {
+        margin-top: clamp(10px, 1.2em, 14px);
         width: 100%;
         @include displayGrid;
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(auto-fit, 1fr);
-        row-gap: clamp(26px, 2.66em, 28px);
-        column-gap: clamp(14px, 1.6em, 18px);
+        grid-template-rows: repeat(auto-fit, minmax(36px, 40px));
+        row-gap: $form_card_content_row_gap;
+        column-gap: $form_card_content_column_gap;
     }
 }

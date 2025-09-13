@@ -1,0 +1,42 @@
+.smallItem {
+    width: 100%;
+    border: 1px solid $primary_dark_color;
+    border-radius: $padding_sm;
+}
+
+.itemContent {
+    overflow: hidden;
+    padding: 0;
+    max-height: 0px;
+
+    &.expanded {
+        // display: flex;
+        max-height: 1000px;
+        width: 100%;
+        animation: expandFormContent;
+        @include shortAnimation;
+        transform-origin: top;
+    }
+}
+
+.itemContent.expanded:has(.additionalInfoItem) {
+    .additionalInfoItem {
+        width: 100%;
+        @include flexColumn;
+        align-items: stretch;
+        gap: $form_card_content_row_gap;
+        margin-top: clamp(10px, 1.2em, 14px);
+        padding: $padding_md;
+        padding-bottom: $padding_xl;
+
+        & > *:last-child {
+            align-self: flex-end;
+        }
+    }
+}
+
+.additionalInfoItem {
+}
+
+.btnsWrapper {
+}

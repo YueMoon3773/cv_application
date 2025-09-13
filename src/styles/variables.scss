@@ -28,6 +28,7 @@ $primary_light_color: #a0cbe4;
 $primary_lighter_color: #bfdced;
 $primary_dark_color: #3f97ca;
 $primary_darker_color: #3081b0;
+$primary_darkest_color: #185375;
 
 $cv_primary_color: #d1e9f0;
 $cv_heading_color: #225d81;
@@ -44,17 +45,34 @@ $fs_normal_lg: clamp(1.6rem, 1vw + 1.7rem, 1.86rem);
 $fs_normal_md: clamp(1.36rem, 0.6vw + 1.3rem, 1.4rem);
 $fs_normal_sm: clamp(1.16rem, 0.3vw + 1.16rem, 1.26rem);
 
+// VARIABLES SET UP
+$side_btns_position: clamp(6px, 0.8em, 10px);
+
+$scroll_bar_width: clamp(4.6px, 0.56em, 6.6px);
+$scroll_bar_border_radius: clamp(8px, 0.86em, 10px);
+
 $padding_xxxl: 24px;
 $padding_xxl: 20px;
 $padding_xl: 16px;
 $padding_lg: 12px;
 $padding_md: 8px;
 $padding_sm: 6px;
+$form_heading_btn_padding: clamp(12px, 1.26em, 14px) clamp(4px, 5.6em, 6px) clamp(12px, 1.26em, 14px)
+    clamp(14px, 1.56em, 16px);
 
 $form_card_width: max(560px, 580px);
-$form_card_content_gap: clamp(20px, 2.4em, 30px);
+$form_card_content_row_gap: clamp(26px, 2.66em, 28px);
+$form_card_content_column_gap: clamp(14px, 1.6em, 18px);
+$form_card_sections_gap: clamp(20px, 2.4em, 26px);
+$form_card_items_gap: clamp(18px, 1.86em, 24px);
+
+$form_controller_heading_top: clamp(-18px, 2em, -20px);
+$form_controller_heading_left: clamp(12px, 1.4em, 14px);
 
 $inpBorderWidth: 2.6px;
+
+$resume_preview_max_height: min(90vh, 297mm);
+$resume_ratio: 210 / 297;
 
 /* =============================================== */
 /* FUNCTIONS SETUP  */
@@ -160,8 +178,14 @@ $inpBorderWidth: 2.6px;
     0% {
         transform: scaleY(0);
     }
-    70% {
+    60% {
         transform: scaleY(1.026);
+    }
+    80% {
+        transform: scaleY(1.016);
+    }
+    90% {
+        transform: scaleY(1.006);
     }
     100% {
         transform: scaleY(1);

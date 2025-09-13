@@ -1,0 +1,19 @@
+.sideBtn {
+    padding: $padding_md;
+    color: $primary_darker_color;
+    cursor: pointer;
+    background-color: $snow_white_color;
+    outline: none;
+    border: 3.6px solid transparent;
+    border-radius: 12px;
+    @include normalTransition;
+
+    svg {
+        height: $fs_heading_sm;
+    }
+
+    &:hover {
+        color: $primary_color;
+        border-color: $primary_color;
+    }
+}

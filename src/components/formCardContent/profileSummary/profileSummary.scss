@@ -1,0 +1,19 @@
+.formContent.expanded:has(.profileSummary) {
+    @include flexColumn;
+    align-items: stretch;
+
+    .profileSummary {
+        width: 100%;
+        @include flexColumn;
+        gap: clamp(26px, 2.66em, 28px);
+
+        .profileSummaryHeading {
+            font-size: $fs_normal_md;
+            font-weight: 600;
+            color: $primary_dark_color;
+            text-align: justify;
+            margin-bottom: 0.2em;
+            cursor: default;
+        }
+    }
+}

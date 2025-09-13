@@ -1,0 +1,12 @@
+.formContent.expanded:has(.additionalInfo) {
+    @include flexColumn;
+    align-items: flex-end;
+    // align-items: stretch;
+    gap: $form_card_sections_gap;
+
+    .additionalInfo {
+        width: 100%;
+        @include flexColumn;
+        gap: $form_card_items_gap;
+    }
+}

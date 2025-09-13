@@ -1,12 +1,16 @@
 .formWrapper {
+    font-size: 1rem;
+    @include flexColumn;
     align-self: flex-start;
+    gap: clamp(26px, 2.8em, 30px);
+    margin-bottom: clamp(46px, 4.6em, 50px);
 }
 
 .formHeader {
     @include flexColumn;
     @include flexCenter;
     gap: max(0px, 1.2em);
-    margin: clamp(46px, 4.66em, 50px) 0 clamp(40px, 4em, 46px);
+    margin: clamp(46px, 4.66em, 50px) 0 clamp(20px, 2em, 26px);
     cursor: default;
 }
 
@@ -39,4 +43,37 @@
     font-size: $fs_normal_lg;
     font-weight: 600;
     color: $blue_color;
+}
+
+.formFooter {
+    @include flexCenter;
+}
+
+.formFooterText {
+    @include flexCenter;
+    font-size: $fs_normal_md;
+    font-weight: 560;
+    color: $primary_darkest_color;
+    cursor: default;
+}
+
+.formFooterLink {
+    @include flexCenter;
+    font-size: $fs_normal_md;
+    margin-left: clamp(6px, 0.66em, 8px);
+    color: $primary_darkest_color;
+    cursor: pointer;
+    @include normalTransition;
+
+    & > svg {
+        height: $fs_normal_xl;
+        margin-right: clamp(4px, 0.46em, 6px);
+        @include normalTransition;
+    }
+
+    &:hover,
+    &:hover > svg {
+        transform: scale(1.03);
+        color: $primary_dark_color;
+    }
 }
