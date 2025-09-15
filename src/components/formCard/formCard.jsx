@@ -14,7 +14,7 @@ import FormController from '../formController/formController';
 
 import './formCard.scss';
 
-const FormCard = ({ cardType = '', data, setData }) => {
+const FormCard = ({ cardType = '', isSampleData, data, setData }) => {
     const [isExpanded, setIsExpanded] = useState(false);
 
     const handleExpand = () => setIsExpanded(!isExpanded);
@@ -28,7 +28,7 @@ const FormCard = ({ cardType = '', data, setData }) => {
                         isMainBtnExpanded={isExpanded}
                         handleExpand={handleExpand}
                     />
-                    <PersonalInfo data={data} setData={setData} isExpanded={isExpanded} />
+                    <PersonalInfo isSampleData={isSampleData} data={data} setData={setData} isExpanded={isExpanded} />
                 </>
             )}
             {cardType === 'profileSummary' && (
@@ -38,10 +38,10 @@ const FormCard = ({ cardType = '', data, setData }) => {
                         isMainBtnExpanded={isExpanded}
                         handleExpand={handleExpand}
                     />
-                    <ProfileSummary data={data} setData={setData} isExpanded={isExpanded} />
+                    <ProfileSummary isSampleData={isSampleData} data={data} setData={setData} isExpanded={isExpanded} />
                 </>
             )}
-            {cardType === 'education' && (
+            {cardType === 'educations' && (
                 <>
                     <CardHeadingButton
                         btnContent={'Education'}
@@ -53,10 +53,11 @@ const FormCard = ({ cardType = '', data, setData }) => {
                         data={data}
                         setData={setData}
                         isExpanded={isExpanded}
+                        isSampleData={isSampleData}
                     />
                 </>
             )}
-            {cardType === 'workExperiences' && (
+            {cardType === 'experiences' && (
                 <>
                     <CardHeadingButton
                         btnContent={'Work Experiences'}
@@ -68,6 +69,7 @@ const FormCard = ({ cardType = '', data, setData }) => {
                         data={data}
                         setData={setData}
                         isExpanded={isExpanded}
+                        isSampleData={isSampleData}
                     />
                 </>
             )}
@@ -78,7 +80,7 @@ const FormCard = ({ cardType = '', data, setData }) => {
                         isMainBtnExpanded={isExpanded}
                         handleExpand={handleExpand}
                     />
-                    <AdditionalInfo data={data} setData={setData} isExpanded={isExpanded} />
+                    <AdditionalInfo isSampleData={isSampleData} data={data} setData={setData} isExpanded={isExpanded} />
                 </>
             )}
             {cardType === 'controller' && (
@@ -88,7 +90,7 @@ const FormCard = ({ cardType = '', data, setData }) => {
                         isMainBtnExpanded={isExpanded}
                         handleExpand={handleExpand}
                     />
-                    <FormController data={data} setData={setData} isExpanded={isExpanded} />
+                    <FormController isSampleData={isSampleData} data={data} setData={setData} isExpanded={isExpanded} />
                 </>
             )}
         </div>

@@ -7,7 +7,7 @@ import AddBtn from '../../addButton/addButton';
 
 import './smallItem.scss';
 
-const SmallItem = ({ data, setData }) => {
+const SmallItem = ({ isSampleData, data, setData }) => {
     const [isExpanded, setIsExpanded] = useState(false);
     const [smallItemHeading, setSmallItemHeading] = useState('');
 
@@ -46,7 +46,12 @@ const SmallItem = ({ data, setData }) => {
                         dataToChange=""
                     />
                     <div className="btnsWrapper">
-                        <AddBtn addBtnContent="Add key point" data={data} setData={setData} />
+                        <AddBtn
+                            addBtnContent="Add key point"
+                            isSampleData={isSampleData}
+                            data={data}
+                            setData={setData}
+                        />
                     </div>
                 </div>
             </div>

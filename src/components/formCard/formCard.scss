@@ -7,11 +7,11 @@
     background-color: $snow_white_color;
     overflow: hidden;
     padding: 0;
+    width: $form_card_width;
     max-height: 0px;
 
     &.expanded {
-        max-height: 1000px;
-        width: $form_card_width;
+        max-height: 5000px;
 
         animation: expandFormContent;
         @include normalAnimation;

@@ -7,15 +7,30 @@ import AddBtn from '../../addButton/addButton';
 
 import './largeItem.scss';
 
-const LargeItem = ({ largeItemType = '', data, setData }) => {
+const LargeItem = ({ largeItemType = '', isSampleData, indexOfDataToChange = null, data, setData }) => {
     const [isExpanded, setIsExpanded] = useState(false);
-
     const handleExpand = () => setIsExpanded(!isExpanded);
+
+    let sampleData;
+    if (isSampleData === true) {
+        if (data.getSampleData().activeSampleId === 1) {
+            sampleData = data.getSampleData().sampleData1;
+        } else if (data.getSampleData().activeSampleId === 2) {
+            sampleData = data.getSampleData().sampleData2;
+        }
+    }
+    // console.log(sampleData.experiences[indexOfDataToChange].expDescription);
 
     return (
         <div className="largeItem">
             <CardHeadingButton
-                btnContent={'School'}
+                btnContent={
+                    isSampleData === true && largeItemType === 'educations'
+                        ? `${sampleData[largeItemType][indexOfDataToChange].school}, ${sampleData[largeItemType][indexOfDataToChange].course}`
+                        : isSampleData === true && largeItemType === 'experiences'
+                        ? `${sampleData[largeItemType][indexOfDataToChange].company}, ${sampleData[largeItemType][indexOfDataToChange].position}`
+                        : ''
+                }
                 isMainBtnExpanded={isExpanded}
                 isMainHeadingButton={false}
                 handleExpand={handleExpand}
@@ -24,31 +39,37 @@ const LargeItem = ({ largeItemType = '', data, setData }) => {
                 <div className="educationAndExperiencesItem">
                     <div className="largeItemFirstRow">
                         <CardInput
-                            labelContent={`${largeItemType === 'education' ? 'School' : 'Company'}`}
+                            labelContent={`${
+                                largeItemType === 'educations' ? 'School' : 'experiences' ? 'Company' : ''
+                            }`}
                             inpType="text"
                             inpPlaceholder={`Your ${
-                                largeItemType === 'education'
+                                largeItemType === 'educations'
                                     ? 'school. Ex: Monsters University'
                                     : 'company. Ex: Monsters Inc'
                             }`}
-                            inpValue="Monsters University"
+                            // inpValue="Monsters University"
                             isInpRequired={true}
                             data={data}
                             setData={setData}
-                            dataToChange=""
+                            indexOfDataToChange={indexOfDataToChange}
+                            dataToChange={largeItemType === 'educations' ? 'school' : 'experiences' ? 'company' : ''}
                         />
                         <CardInput
-                            labelContent={`${largeItemType === 'education' ? 'Course' : 'Position'}`}
+                            labelContent={`${
+                                largeItemType === 'educations' ? 'Course' : 'experiences' ? 'Position' : ''
+                            }`}
                             inpType="text"
                             inpPlaceholder={`Your ${
-                                largeItemType === 'education'
+                                largeItemType === 'educations'
                                     ? 'Course. Ex: School of Scaring'
                                     : 'school. Ex: Scare Assistant'
                             }`}
-                            inpValue="School of Scaring"
+                            // inpValue="School of Scaring"
                             data={data}
                             setData={setData}
-                            dataToChange=""
+                            indexOfDataToChange={indexOfDataToChange}
+                            dataToChange={largeItemType === 'educations' ? 'course' : 'experiences' ? 'position' : ''}
                         />
                     </div>
                     <div className="largeItemSecondRow">
@@ -56,54 +77,77 @@ const LargeItem = ({ largeItemType = '', data, setData }) => {
                             labelContent="Start date"
                             inpType="text"
                             inpPlaceholder="1987"
-                            inpValue="1987"
+                            // inpValue="1987"
                             data={data}
                             setData={setData}
-                            dataToChange=""
+                            indexOfDataToChange={indexOfDataToChange}
+                            dataToChange={
+                                largeItemType === 'educations' ? 'eduStartDate' : 'experiences' ? 'expStartDate' : ''
+                            }
                         />
                         <CardInput
                             labelContent="End date"
                             inpType="text"
                             inpPlaceholder="1988"
-                            inpValue="1988"
+                            // inpValue="1988"
                             data={data}
                             setData={setData}
-                            dataToChange=""
+                            indexOfDataToChange={indexOfDataToChange}
+                            dataToChange={
+                                largeItemType === 'educations' ? 'eduEndDate' : 'experiences' ? 'expEndDate' : ''
+                            }
                         />
                     </div>
-                    {largeItemType === 'education' ? null : (
+                    {largeItemType === 'educations' ? null : (
                         <CardInput
                             labelContent="Project title"
                             inpType="text"
                             inpPlaceholder="The Laughter Initiative"
-                            inpValue="The Laughter Initiative"
+                            // inpValue="The Laughter Initiative"
                             data={data}
                             setData={setData}
-                            dataToChange=""
+                            indexOfDataToChange={indexOfDataToChange}
+                            dataToChange="projectTitle"
                         />
                     )}
-                    {data.getUserData().experiences.length === 0 ? (
-                        <CardTextArea
-                            labelContent="Key point 1"
-                            textAreaDisplayLines={2}
-                            data={data}
-                            setData={setData}
-                        />
-                    ) : (
-                        data.getUserData().experiences.map((experience, index) => {
-                            return (
-                                <CardTextArea
-                                    labelContent={`Key point ${index + 1}`}
-                                    textAreaDisplayLines={2}
-                                    data={data}
-                                    setData={setData}
-                                    key={index}
-                                />
-                            );
-                        })
-                    )}
+                    {largeItemType === 'educations' &&
+                        isSampleData === true &&
+                        sampleData.educations[indexOfDataToChange].eduDescription.map((item, index) => (
+                            <CardTextArea
+                                labelContent={`Key point ${index + 1}`}
+                                textAreaDisplayLines={2}
+                                data={data}
+                                setData={setData}
+                                isSampleData={isSampleData}
+                                indexOfLargeItem={indexOfDataToChange}
+                                indexOfDataToChange={index}
+                                dataToChange="eduDescription"
+                                key={index}
+                            />
+                        ))}
+                    {largeItemType === 'experiences' &&
+                        isSampleData === true &&
+                        sampleData.experiences[indexOfDataToChange].expDescription.map((item, index) => (
+                            <CardTextArea
+                                labelContent={`Key point ${index + 1}`}
+                                textAreaDisplayLines={2}
+                                data={data}
+                                setData={setData}
+                                isSampleData={isSampleData}
+                                indexOfLargeItem={indexOfDataToChange}
+                                indexOfDataToChange={index}
+                                dataToChange="expDescription"
+                                key={index}
+                            />
+                        ))}
+
                     <div className="btnsWrapper">
-                        <AddBtn addBtnContent="Add key point" data={data} setData={setData} />
+                        <AddBtn
+                            addBtnContent="Add key point"
+                            isSampleData={isSampleData}
+                            data={data}
+                            setData={setData}
+                        />
                     </div>
                 </div>
             </div>

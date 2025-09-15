@@ -22,7 +22,7 @@
 .cardHeadingButton {
     @include flexCenter;
     justify-content: space-between;
-    gap: 6em;
+    gap: clamp(10px, 1em, 12px);
     width: 100%;
     padding: $form_heading_btn_padding;
     @include normalTransition;
@@ -34,40 +34,50 @@
     border-radius: 6px;
     cursor: pointer;
 
-    & > * {
+    & > div {
         @include flexCenter;
-        font-size: $fs_normal_md;
-        font-weight: 760;
-        letter-spacing: 0.01em;
-        color: $black_text;
+        justify-content: flex-start;
         gap: clamp(6px, 0.66em, 8px);
+        max-width: 90%;
         @include normalTransition;
         transition-delay: 60ms;
     }
-    & > svg {
-        height: $fs_heading_sm;
-        aspect-ratio: 1 / 1;
-        transform: rotate(0);
+
+    & > div > .btnContent {
+        color: $black_text;
+        letter-spacing: 0.01em;
+        font-size: $fs_normal_md;
+        font-weight: 760;
+        text-align: left;
+
         @include normalTransition;
-        // transition-delay: 160ms;
+        transition-delay: 60ms;
+
+        overflow: hidden;
+        display: -webkit-box;
+        line-clamp: 1;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
     }
-    & > * > svg {
+    & > svg,
+    & > div > svg {
         height: $fs_heading_sm;
-        aspect-ratio: 1 / 1;
         @include normalTransition;
-        transition-delay: 160ms;
+        transition-delay: 60ms;
     }
 
     &:hover,
     &:hover.expanded {
         background-color: $primary_light_color;
-        & > * {
+        & > *,
+        & > * > .btnContent {
             color: $snow_white_color;
         }
     }
     &.expanded {
         background-color: $primary_lighter_color;
-        & > * {
+        & > *,
+        & > * > .btnContent {
             color: $primary_darkest_color;
         }
 

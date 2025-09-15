@@ -6,7 +6,7 @@ import { GithubIcon } from '../../assets/data/svgIcons';
 
 import './form.scss';
 
-const FormWrapper = ({ data, setData }) => {
+const FormWrapper = ({ isSampleData, data, setData }) => {
     return (
         <div className="sideWrapper formWrapper">
             <div className="formHeader">
@@ -16,12 +16,12 @@ const FormWrapper = ({ data, setData }) => {
                 </h1>
                 <span className="formSlogan">Your journey. Your resume. Your next step.</span>
             </div>
-            <FormCard cardType="controller" data={data} setData={setData} />
-            <FormCard cardType="personalInfo" data={data} setData={setData} />
-            <FormCard cardType="profileSummary" data={data} setData={setData} />
-            <FormCard cardType="education" data={data} setData={setData} />
-            <FormCard cardType="workExperiences" data={data} setData={setData} />
-            <FormCard cardType="additionalInfo" data={data} setData={setData} />
+            <FormCard cardType="controller" isSampleData={isSampleData} data={data} setData={setData} />
+            <FormCard cardType="personalInfo" isSampleData={isSampleData} data={data} setData={setData} />
+            <FormCard cardType="profileSummary" isSampleData={isSampleData} data={data} setData={setData} />
+            <FormCard cardType="educations" isSampleData={isSampleData} data={data} setData={setData} />
+            <FormCard cardType="experiences" isSampleData={isSampleData} data={data} setData={setData} />
+            <FormCard cardType="additionalInfo" isSampleData={isSampleData} data={data} setData={setData} />
 
             <div className="formFooter">
                 <p className="formFooterText">

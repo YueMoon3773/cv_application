@@ -1,5 +1,7 @@
 .inpWrapper {
     position: relative;
+    align-self: center;
+    width: 100%;
     @include flexCenter;
     isolation: isolate;
     z-index: 1;

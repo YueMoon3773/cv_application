@@ -4,7 +4,7 @@ import { PlusEmptyIcon, PlusFullIcon } from '../../assets/data/svgIcons';
 
 import './addButton.scss';
 
-const AddBtn = ({ addBtnContent = '', addBtnClickHandler, data, setData }) => {
+const AddBtn = ({ addBtnContent = '', addBtnClickHandler, isSampleData, data, setData }) => {
     const [hidePlusFullBtn, setHidePlusFullBtn] = useState(true);
 
     return (

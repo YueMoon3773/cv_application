@@ -66,7 +66,7 @@ const CardHeadingButton = ({ btnContent, isMainHeadingButton = true, isMainBtnEx
                     >
                         <div>
                             {btnIcon === null ? null : btnIcon}
-                            {btnContent}
+                            <div className="btnContent">{btnContent || ''}</div>
                         </div>
                         <ArrowIcon />
                     </button>
@@ -79,8 +79,8 @@ const CardHeadingButton = ({ btnContent, isMainHeadingButton = true, isMainBtnEx
                         onClick={handleExpand}
                     >
                         <div>
-                            {btnIcon}
-                            {btnContent || ''}
+                            {btnIcon === null ? null : btnIcon}
+                            <div className="btnContent">{btnContent || ''}</div>
                         </div>
                         <ArrowIcon />
                     </button>

@@ -4,7 +4,13 @@ import { SampleFormIcon, ResetIcon } from '../../assets/data/svgIcons';
 
 import './controllerBtn.scss';
 
-const ControllerBtn = ({ btnContent, btnStyle = '', handleOnClick = null, data, setData }) => {
+const ControllerBtn = ({ btnContent, btnStyle = '', handleOnClick = null, isSampleData, data, setData }) => {
+
+    const handleClearAllBtn=() => {
+        
+    }
+
+
     return (
         <button className={`controllerBtn ${btnStyle}`}>
             {btnContent === 'Clear all' && (

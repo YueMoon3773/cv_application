@@ -6,16 +6,55 @@ const CardInput = ({
     labelContent = '',
     inpType = 'text',
     inpPlaceholder = '',
-    inpValue = '',
+    // inpValue = '',
     isInpRequired = false,
     isOnTwoCol = false,
-    data,
-    setData,
+    customOnChange = null,
+    isSampleData = true,
     dataToChange,
     indexOfDataToChange = null,
-    customOnChange = null,
+    data,
+    setData,
 }) => {
-    const handleInput = (dataToChange, inpValue, customOnChange) => {};
+    let inpValue = '';
+    let usrDataKey = '';
+
+    const handleInpValue = (isSampleData, dataToChange) => {
+        if (isSampleData === true) {
+            let sampleData;
+            if (data.getSampleData().activeSampleId === 1) {
+                sampleData = data.getSampleData().sampleData1;
+            } else if (data.getSampleData().activeSampleId === 2) {
+                sampleData = data.getSampleData().sampleData2;
+            }
+            // console.log(sampleData);
+            // console.log(sampleData[dataToChange]);
+            inpValue = sampleData[dataToChange];
+            if (
+                dataToChange === 'school' ||
+                dataToChange === 'course' ||
+                dataToChange === 'eduStartDate' ||
+                dataToChange === 'eduEndDate' ||
+                dataToChange === 'eduDescription'
+            ) {
+                inpValue = sampleData.educations[indexOfDataToChange][dataToChange];
+            }
+            if (
+                dataToChange === 'company' ||
+                dataToChange === 'position' ||
+                dataToChange === 'expStartDate' ||
+                dataToChange === 'expEndDate' ||
+                dataToChange === 'projectTitle' ||
+                dataToChange === 'expDescription'
+            ) {
+                inpValue = sampleData.experiences[indexOfDataToChange][dataToChange];
+            }
+        }
+    };
+    handleInpValue(isSampleData, dataToChange);
+    // console.log(inpValue);
+
+    const handleInput = (usrDataKey, inpValue) => {};
 
     return (
         <div className={`inpWrapper ${isOnTwoCol == true ? 'spanTwoCol' : ''}`}>
@@ -25,7 +64,7 @@ const CardInput = ({
                 placeholder={inpPlaceholder}
                 value={inpValue}
                 required={isInpRequired}
-                onChange={customOnChange || ((e) => handleInput(dataToChange, e.target.value))}
+                onChange={customOnChange || ((e) => handleInput(usrDataKey, e.target.value))}
             />
             <label className="inputLabel">{isInpRequired === true ? `${labelContent}*` : labelContent}</label>
             <span className="inpFocusBorders">

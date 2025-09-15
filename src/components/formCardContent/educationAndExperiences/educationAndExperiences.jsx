@@ -5,15 +5,41 @@ import AddBtn from '../../addButton/addButton';
 
 import './educationAndExperiences.scss';
 
-const EducationAndExperiences = ({ largeItemType = '', isExpanded = false, data, setData }) => {
+const EducationAndExperiences = ({ largeItemType = '', isExpanded = false, isSampleData, data, setData }) => {
+    // console.log({ largeItemType });
+
+    let sampleData;
+    if (isSampleData === true) {
+        if (data.getSampleData().activeSampleId === 1) {
+            sampleData = data.getSampleData().sampleData1;
+        } else if (data.getSampleData().activeSampleId === 2) {
+            sampleData = data.getSampleData().sampleData2;
+        }
+    }
+
     return (
         <div className={`formContent ${isExpanded === true ? 'expanded' : ''}`}>
             <div className="educationAndExperiences">
-                <LargeItem largeItemType={largeItemType} data={data} setData={setData} />
-                <LargeItem largeItemType={largeItemType} data={data} setData={setData} />
+                {isSampleData === true
+                    ? sampleData[largeItemType].map((item, index) => {
+                          //   console.log(item);
+
+                          return (
+                              <LargeItem
+                                  largeItemType={largeItemType}
+                                  isSampleData={isSampleData}
+                                  data={data}
+                                  setData={setData}
+                                  indexOfDataToChange={index}
+                                  key={index}
+                              />
+                          );
+                      })
+                    : ''}
+                {/* <LargeItem largeItemType={largeItemType} isSampleData={isSampleData} data={data} setData={setData} /> */}
             </div>
             <div className="btnsWrapper">
-                <AddBtn addBtnContent="Add section item" data={data} setData={setData} />
+                <AddBtn addBtnContent="Add section item" isSampleData={isSampleData} data={data} setData={setData} />
             </div>
         </div>
     );

@@ -1,5 +1,6 @@
 const database = () => {
     const mainDataStructure = {
+        font: '',
         firstName: '',
         lastName: '',
         jobTitle: '',
@@ -15,20 +16,23 @@ const database = () => {
         more: [],
     };
 
+    const fontsList = ['Ledger', 'Roboto', 'Sono'];
+
     const experiencesStructure = {
         company: '',
         position: '',
-        startDate: '',
-        endDate: '',
-        description: [],
+        expStartDate: '',
+        expEndDate: '',
+        projectTitle: '',
+        expDescription: [],
     };
 
     const educationStructure = {
         school: '',
         course: '',
-        startDate: '',
-        endDate: '',
-        description: [],
+        eduStartDate: '',
+        eduEndDate: '',
+        eduDescription: [],
     };
 
     let userData = { ...mainDataStructure };
@@ -51,10 +55,10 @@ const database = () => {
                 company: 'Monsters, Inc.',
                 position:
                     'Senior Co-President & Chief Executive Vice-Deputy Administrative Director of Comedy Resources Management',
-                startDate: '2013',
-                endDate: 'Present',
+                expStartDate: '2013',
+                expEndDate: 'Present',
                 projectTitle: 'The Laughter Initiative',
-                description: [
+                expDescription: [
                     'Spearheaded the company-wide transition from scream-based to laughter-based energy, revolutionizing the monster world’s power source and saving the company from a major energy crisis.',
                     'Collaborated with James P. Sullivan to lead the company to new heights of success, setting new records for energy production and corporate morale.',
                     'Developed and implemented innovative comedy-based techniques for energy collection, training a new generation of monsters in the art of laughter.',
@@ -63,10 +67,10 @@ const database = () => {
             {
                 company: 'Monsters, Inc.',
                 position: 'Scare Assistant',
-                startDate: '2001',
-                endDate: '2013',
+                expStartDate: '2001',
+                expEndDate: '2013',
                 projectTitle: 'Top Scarer Support System',
-                description: [
+                expDescription: [
                     'Managed all logistics and administrative duties for Monsters, Inc.’s top scarer, James P. Sullivan, ensuring optimal performance on the Scare Floor.',
                     'Analyzed and organized scare data, maintaining meticulous records to optimize scare techniques and maximize scream energy output.',
                     'Designed and created training materials and presentations for new scarers, demonstrating a comprehensive understanding of scare theory and best practices.',
@@ -75,10 +79,10 @@ const database = () => {
             {
                 company: 'Monsters, Inc.',
                 position: 'Mailroom Clerk',
-                startDate: '1988',
-                endDate: '2001',
+                expStartDate: '1988',
+                expEndDate: '2001',
                 projectTitle: 'Monsters, Inc. Mail Stream Optimization',
-                description: [
+                expDescription: [
                     'Efficiently sorted and delivered all incoming and outgoing mail for the company, demonstrating an early commitment to hard work and attention to detail.',
                     'Leveraged knowledge of company layout and personnel to ensure timely and accurate delivery of important documents and correspondence.',
                 ],
@@ -86,10 +90,10 @@ const database = () => {
             {
                 company: 'Oozma Kappa Fraternity (Monsters University)',
                 position: 'Scare Games Competitor',
-                startDate: 'College Years',
-                endDate: 'Graduation',
+                expStartDate: 'College Years',
+                expEndDate: 'Graduation',
                 projectTitle: 'Manage team',
-                description: [
+                expDescription: [
                     'Led underdog fraternity to victory in the annual Scare Games.',
                     'Demonstrated teamwork, persistence, and creative scare tactics.',
                     'Inspired peers to believe in themselves despite long odds.',
@@ -100,9 +104,9 @@ const database = () => {
             {
                 school: 'Monsters University',
                 course: 'School of Scaring',
-                startDate: '1987',
-                endDate: '1988',
-                description: [
+                eduStartDate: '1987',
+                eduEndDate: '1988',
+                eduDescription: [
                     'Enrolled in the prestigious School of Scaring with a lifelong dream of becoming a top scarer.',
                     'Demonstrated an unparalleled understanding of scare theory and academic knowledge, consistently achieving top marks in all coursework.',
                     'Learned the importance of collaboration and teamwork as a member of the Oozma Kappa fraternity, leading the team through the Scare Games.',
@@ -114,9 +118,9 @@ const database = () => {
             {
                 school: 'Scare Elementary School',
                 course: 'Monster Basics',
-                startDate: 'Childhood',
-                endDate: 'Early Years',
-                description: [
+                eduStartDate: 'Childhood',
+                eduEndDate: 'Early Years',
+                eduDescription: [
                     'Learned fundamentals of being a monster.',
                     'Showed early enthusiasm for scaring and performing.',
                     'Met lifelong best friend James P. Sullivan.',
@@ -156,10 +160,10 @@ const database = () => {
             {
                 company: 'Monsters, Inc.',
                 position: 'Senior Co-President & Chief Executive Officer of Laughter Resources',
-                startDate: '2013',
-                endDate: 'Present',
+                expStartDate: '2013',
+                expEndDate: 'Present',
                 projectTitle: 'The Laughter Initiative',
-                description: [
+                expDescription: [
                     'Co-led the successful transition of Monsters, Inc. from scream-based to laughter-based energy production, a move that revitalized the company and solved a major energy crisis.',
                     'Established new training protocols and corporate values centered on positive engagement and creative humor, fostering a collaborative and productive work environment.',
                     'Acted as a public face for the new Monsters, Inc., inspiring confidence and optimism in the monster community through his leadership and vision.',
@@ -168,10 +172,10 @@ const database = () => {
             {
                 company: 'Monsters, Inc.',
                 position: 'Top Scarer',
-                startDate: '2001',
-                endDate: '2013',
+                expStartDate: '2001',
+                expEndDate: '2013',
                 projectTitle: 'The Scare Floor Optimization Project',
-                description: [
+                expDescription: [
                     'Held the prestigious title of "Top Scarer" for over a decade, consistently breaking company records for scream energy output.',
                     'Mentored new recruits and served as a role model for aspiring scarers, showcasing an impressive combination of natural talent and disciplined technique.',
                     'Worked closely with scare assistant Mike Wazowski to optimize performance and maintain a flawless record on the Scare Floor.',
@@ -180,10 +184,10 @@ const database = () => {
             {
                 company: 'Monsters, Inc.',
                 position: 'Mailroom Clerk',
-                startDate: '1988',
-                endDate: '2001',
+                expStartDate: '1988',
+                expEndDate: '2001',
                 projectTitle: 'Monsters, Inc. Mail Stream Optimization',
-                description: [
+                expDescription: [
                     'Efficiently sorted and delivered all incoming and outgoing mail for the company, demonstrating an early commitment to hard work and attention to detail.',
                     'Leveraged knowledge of company layout and personnel to ensure timely and accurate delivery of important documents and correspondence.',
                 ],
@@ -191,10 +195,10 @@ const database = () => {
             {
                 company: 'Oozma Kappa Fraternity (Monsters University)',
                 position: 'Scare Games Champion',
-                startDate: 'College Years',
-                endDate: 'Graduation',
+                expStartDate: 'College Years',
+                expEndDate: 'Graduation',
                 projectTitle: 'Scare Games Performance Leadership',
-                description: [
+                expDescription: [
                     'Competed alongside Mike Wazowski to win the Scare Games against all odds.',
                     'Demonstrated courage, adaptability, and resilience.',
                     'Learned the value of teamwork and believing in others.',
@@ -205,9 +209,9 @@ const database = () => {
             {
                 school: 'Monsters University',
                 course: 'School of Scaring',
-                startDate: '1987',
-                endDate: '1988',
-                description: [
+                eduStartDate: '1987',
+                eduEndDate: '1988',
+                eduDescription: [
                     'Attended the elite School of Scaring, where he was recognized for his natural scaring ability and powerful physique.',
                     'Gained an understanding of scare theory and practical application, though initially relying more on innate talent than academic study.',
                     'Forged a lifelong friendship and partnership with Mike Wazowski, which became a foundation for his future career.',
@@ -216,9 +220,9 @@ const database = () => {
             {
                 school: 'Monsters University',
                 course: 'Fraternity Member (Briefly)',
-                startDate: 'Early College',
-                endDate: 'Transferred',
-                description: [
+                eduStartDate: 'Early College',
+                eduEndDate: 'Transferred',
+                eduDescription: [
                     'Initially joined elite fraternity but discovered values didn’t align.',
                     'Learned humility and importance of integrity over prestige.',
                     'Moved on to Oozma Kappa where teamwork was emphasized.',
@@ -243,21 +247,38 @@ const database = () => {
         ],
     };
 
-    const sampleData = { sampleData1, sampleData2 };
+    const databaseSampleData = { activeSampleId: 1, sampleData1, sampleData2 };
 
     // const getmainDataStructure = () => mainDataStructure;
-    const getSampleData = () => sampleData;
+    const switchActiveId = () => {
+        if (getSampleData().activeSampleId === 1) {
+            getSampleData().activeSampleId = 2;
+        } else if (getSampleData().activeSampleId === 2) {
+            getSampleData().activeSampleId = 1;
+        }
+    };
+    const getSampleData = () => databaseSampleData;
     const getExperiencesStructure = () => experiencesStructure;
     const getEducationStructure = () => educationStructure;
+    const getFonts = () => fontsList;
+
     const getUserData = () => userData;
-    const resetUserData = () => (userData = { ...mainDataStructure });
+    const resetUserData = () => {
+        userData = { ...mainDataStructure };
+    };
+    const setUserToSampleData = (inpSampleData) => {
+        userData = { ...inpSampleData };
+    };
 
     return {
         getSampleData,
+        switchActiveId,
         getExperiencesStructure,
         getEducationStructure,
+        getFonts,
         getUserData,
         resetUserData,
+        setUserToSampleData,
     };
 };
 

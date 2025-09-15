@@ -16,4 +16,8 @@
         color: $primary_color;
         border-color: $primary_color;
     }
+
+    &.preview {
+        display: none;
+    }
 }
