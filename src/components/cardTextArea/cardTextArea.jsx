@@ -16,27 +16,25 @@ const CardTextArea = ({
     let inpValue = '';
     let usrDataKey = '';
 
-    const handleInpValue = (isSampleData, dataToChange) => {
-        if (isSampleData === true) {
-            let sampleData;
-            if (data.getSampleData().activeSampleId === 1) {
-                sampleData = data.getSampleData().sampleData1;
-            } else if (data.getSampleData().activeSampleId === 2) {
-                sampleData = data.getSampleData().sampleData2;
-            }
-            // console.log(sampleData);
-            inpValue = sampleData[dataToChange];
-            if (dataToChange === 'eduDescription') {
-                // console.log(sampleData.educations[indexOfLargeItem]);
+    const handleInpValue = (data, dataToChange) => {
+        // let sampleData;
+        // if (data.getSampleData().activeSampleId === 1) {
+        //     sampleData = data.getSampleData().sampleData1;
+        // } else if (data.getSampleData().activeSampleId === 2) {
+        //     sampleData = data.getSampleData().sampleData2;
+        // }
+        // console.log(sampleData);
+        inpValue = data[dataToChange];
+        if (dataToChange === 'eduDescription') {
+            // console.log(data.educations[indexOfLargeItem]);
 
-                inpValue = sampleData.educations[indexOfLargeItem].eduDescription[indexOfDataToChange];
-            }
-            if (dataToChange === 'expDescription') {
-                inpValue = sampleData.experiences[indexOfLargeItem].expDescription[indexOfDataToChange];
-            }
+            inpValue = data.educations[indexOfLargeItem].eduDescription[indexOfDataToChange];
+        }
+        if (dataToChange === 'expDescription') {
+            inpValue = data.experiences[indexOfLargeItem].expDescription[indexOfDataToChange];
         }
     };
-    handleInpValue(isSampleData, dataToChange);
+    handleInpValue(data, dataToChange);
 
     return (
         <div className="textAreaWrapper">

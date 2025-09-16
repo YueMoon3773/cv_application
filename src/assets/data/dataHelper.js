@@ -27,3 +27,10 @@ export const switchActiveId = (sampleData) => {
         sampleData.activeSampleId = 1;
     }
 };
+
+// const resetUserData = () => {
+//     userData = { ...mainDataStructure };
+// };
+// const setUserToSampleData = (inpSampleData) => {
+//     userData = { ...inpSampleData };
+// };

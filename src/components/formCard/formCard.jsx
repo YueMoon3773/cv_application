@@ -2,10 +2,6 @@ import { useState } from 'react';
 
 import CardHeadingButton from '../cardHeadingButton/cardHeadingButton';
 
-import CardInput from '../cardInput/cardInput';
-import CardTextArea from '../cardTextArea/cardTextArea';
-import AddBtn from '../addButton/addButton';
-
 import PersonalInfo from '../formCardContent/personalInfo/personalInfo';
 import ProfileSummary from '../formCardContent/profileSummary/profileSummary';
 import EducationAndExperiences from '../formCardContent/educationAndExperiences/educationAndExperiences';
@@ -14,7 +10,7 @@ import FormController from '../formController/formController';
 
 import './formCard.scss';
 
-const FormCard = ({ cardType = '', isSampleData, data, setData }) => {
+const FormCard = ({ cardType = '', isSampleData, data, setData, sampleData, setSampleData }) => {
     const [isExpanded, setIsExpanded] = useState(false);
 
     const handleExpand = () => setIsExpanded(!isExpanded);
@@ -90,7 +86,14 @@ const FormCard = ({ cardType = '', isSampleData, data, setData }) => {
                         isMainBtnExpanded={isExpanded}
                         handleExpand={handleExpand}
                     />
-                    <FormController isSampleData={isSampleData} data={data} setData={setData} isExpanded={isExpanded} />
+                    <FormController
+                        isSampleData={isSampleData}
+                        data={data}
+                        setData={setData}
+                        isExpanded={isExpanded}
+                        sampleData={sampleData}
+                        setSampleData={setSampleData}
+                    />
                 </>
             )}
         </div>

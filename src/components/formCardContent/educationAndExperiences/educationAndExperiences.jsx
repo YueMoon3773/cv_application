@@ -8,20 +8,22 @@ import './educationAndExperiences.scss';
 const EducationAndExperiences = ({ largeItemType = '', isExpanded = false, isSampleData, data, setData }) => {
     // console.log({ largeItemType });
 
-    let sampleData;
-    if (isSampleData === true) {
-        if (data.getSampleData().activeSampleId === 1) {
-            sampleData = data.getSampleData().sampleData1;
-        } else if (data.getSampleData().activeSampleId === 2) {
-            sampleData = data.getSampleData().sampleData2;
-        }
-    }
+    // let sampleData;
+    // if (isSampleData === true) {
+    //     if (data.getSampleData().activeSampleId === 1) {
+    //         sampleData = data.getSampleData().sampleData1;
+    //     } else if (data.getSampleData().activeSampleId === 2) {
+    //         sampleData = data.getSampleData().sampleData2;
+    //     }
+    // }
+
+    // console.log(data[largeItemType]);
 
     return (
         <div className={`formContent ${isExpanded === true ? 'expanded' : ''}`}>
             <div className="educationAndExperiences">
-                {isSampleData === true
-                    ? sampleData[largeItemType].map((item, index) => {
+                {data[largeItemType].length > 0
+                    ? data[largeItemType].map((item, index) => {
                           //   console.log(item);
 
                           return (

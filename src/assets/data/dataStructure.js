@@ -1,4 +1,4 @@
-const mainDataStructure = {
+const dataStructure = {
     font: '',
     firstName: '',
     lastName: '',
@@ -15,4 +15,4 @@ const mainDataStructure = {
     more: [],
 };
 
-export default mainDataStructure;
+export default dataStructure;

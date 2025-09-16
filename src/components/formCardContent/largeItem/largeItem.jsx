@@ -11,14 +11,14 @@ const LargeItem = ({ largeItemType = '', isSampleData, indexOfDataToChange = nul
     const [isExpanded, setIsExpanded] = useState(false);
     const handleExpand = () => setIsExpanded(!isExpanded);
 
-    let sampleData;
-    if (isSampleData === true) {
-        if (data.getSampleData().activeSampleId === 1) {
-            sampleData = data.getSampleData().sampleData1;
-        } else if (data.getSampleData().activeSampleId === 2) {
-            sampleData = data.getSampleData().sampleData2;
-        }
-    }
+    // let sampleData;
+    // if (isSampleData === true) {
+    //     if (data.getSampleData().activeSampleId === 1) {
+    //         sampleData = data.getSampleData().sampleData1;
+    //     } else if (data.getSampleData().activeSampleId === 2) {
+    //         sampleData = data.getSampleData().sampleData2;
+    //     }
+    // }
     // console.log(sampleData.experiences[indexOfDataToChange].expDescription);
 
     return (
@@ -26,9 +26,9 @@ const LargeItem = ({ largeItemType = '', isSampleData, indexOfDataToChange = nul
             <CardHeadingButton
                 btnContent={
                     isSampleData === true && largeItemType === 'educations'
-                        ? `${sampleData[largeItemType][indexOfDataToChange].school}, ${sampleData[largeItemType][indexOfDataToChange].course}`
+                        ? `${data[largeItemType][indexOfDataToChange].school}, ${data[largeItemType][indexOfDataToChange].course}`
                         : isSampleData === true && largeItemType === 'experiences'
-                        ? `${sampleData[largeItemType][indexOfDataToChange].company}, ${sampleData[largeItemType][indexOfDataToChange].position}`
+                        ? `${data[largeItemType][indexOfDataToChange].company}, ${data[largeItemType][indexOfDataToChange].position}`
                         : ''
                 }
                 isMainBtnExpanded={isExpanded}
@@ -111,8 +111,8 @@ const LargeItem = ({ largeItemType = '', isSampleData, indexOfDataToChange = nul
                         />
                     )}
                     {largeItemType === 'educations' &&
-                        isSampleData === true &&
-                        sampleData.educations[indexOfDataToChange].eduDescription.map((item, index) => (
+                        data[largeItemType].length > 0 &&
+                        data.educations[indexOfDataToChange].eduDescription.map((item, index) => (
                             <CardTextArea
                                 labelContent={`Key point ${index + 1}`}
                                 textAreaDisplayLines={2}
@@ -126,8 +126,8 @@ const LargeItem = ({ largeItemType = '', isSampleData, indexOfDataToChange = nul
                             />
                         ))}
                     {largeItemType === 'experiences' &&
-                        isSampleData === true &&
-                        sampleData.experiences[indexOfDataToChange].expDescription.map((item, index) => (
+                        data[largeItemType].length > 0 &&
+                        data.experiences[indexOfDataToChange].expDescription.map((item, index) => (
                             <CardTextArea
                                 labelContent={`Key point ${index + 1}`}
                                 textAreaDisplayLines={2}

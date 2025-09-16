@@ -19,39 +19,37 @@ const CardInput = ({
     let inpValue = '';
     let usrDataKey = '';
 
-    const handleInpValue = (isSampleData, dataToChange) => {
-        if (isSampleData === true) {
-            let sampleData;
-            if (data.getSampleData().activeSampleId === 1) {
-                sampleData = data.getSampleData().sampleData1;
-            } else if (data.getSampleData().activeSampleId === 2) {
-                sampleData = data.getSampleData().sampleData2;
-            }
-            // console.log(sampleData);
-            // console.log(sampleData[dataToChange]);
-            inpValue = sampleData[dataToChange];
-            if (
-                dataToChange === 'school' ||
-                dataToChange === 'course' ||
-                dataToChange === 'eduStartDate' ||
-                dataToChange === 'eduEndDate' ||
-                dataToChange === 'eduDescription'
-            ) {
-                inpValue = sampleData.educations[indexOfDataToChange][dataToChange];
-            }
-            if (
-                dataToChange === 'company' ||
-                dataToChange === 'position' ||
-                dataToChange === 'expStartDate' ||
-                dataToChange === 'expEndDate' ||
-                dataToChange === 'projectTitle' ||
-                dataToChange === 'expDescription'
-            ) {
-                inpValue = sampleData.experiences[indexOfDataToChange][dataToChange];
-            }
+    const handleInpValue = (data, dataToChange) => {
+        // let sampleData;
+        // if (data.getSampleData().activeSampleId === 1) {
+        //     sampleData = data.getSampleData().sampleData1;
+        // } else if (data.getSampleData().activeSampleId === 2) {
+        //     sampleData = data.getSampleData().sampleData2;
+        // }
+        // console.log(sampleData);
+        // console.log(sampleData[dataToChange]);
+        inpValue = data[dataToChange];
+        if (
+            dataToChange === 'school' ||
+            dataToChange === 'course' ||
+            dataToChange === 'eduStartDate' ||
+            dataToChange === 'eduEndDate' ||
+            dataToChange === 'eduDescription'
+        ) {
+            inpValue = data.educations[indexOfDataToChange][dataToChange];
+        }
+        else if (
+            dataToChange === 'company' ||
+            dataToChange === 'position' ||
+            dataToChange === 'expStartDate' ||
+            dataToChange === 'expEndDate' ||
+            dataToChange === 'projectTitle' ||
+            dataToChange === 'expDescription'
+        ) {
+            inpValue = data.experiences[indexOfDataToChange][dataToChange];
         }
     };
-    handleInpValue(isSampleData, dataToChange);
+    handleInpValue(data, dataToChange);
     // console.log(inpValue);
 
     const handleInput = (usrDataKey, inpValue) => {};
