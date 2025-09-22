@@ -1,7 +1,4 @@
-import { useState } from 'react';
-
 import CardInput from '../../cardInput/cardInput';
-import AddBtn from '../../addButton/addButton';
 
 import './personalInfo.scss';
 
@@ -89,9 +86,6 @@ const PersonalInfo = ({ isExpanded = false, data, setData }) => {
                     dataToChange="website"
                 />
             </div>
-            {/* <div className="btnsWrapper">
-                <AddBtn addBtnContent="Add website"  data={data} setData={setData} />
-            </div> */}
         </div>
     );
 };

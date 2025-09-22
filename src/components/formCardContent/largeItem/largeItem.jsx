@@ -13,25 +13,63 @@ const LargeItem = ({ largeItemType = '', indexOfDataToChange = null, data, setDa
 
     // console.log(data.experiences[indexOfDataToChange].expDescription);
 
+    const addLargeKeyPointBtnHandler = () => {
+        if (largeItemType === 'educations') {
+            setData((prev) => {
+                return {
+                    ...prev,
+                    educations: prev.educations.map((eduItem, index) => {
+                        if (index === indexOfDataToChange) {
+                            return {
+                                ...eduItem,
+                                eduDescription: [...eduItem.eduDescription, ''],
+                            };
+                        } else return eduItem;
+                    }),
+                };
+            });
+        } else if (largeItemType === 'experiences') {
+            setData((prev) => {
+                return {
+                    ...prev,
+                    experiences: prev.experiences.map((expItem, index) => {
+                        if (index === indexOfDataToChange) {
+                            return {
+                                ...expItem,
+                                expDescription: [...expItem.expDescription, ''],
+                            };
+                        } else return expItem;
+                    }),
+                };
+            });
+        }
+    };
+
     return (
         <div className="largeItem">
             <CardHeadingButton
                 btnContent={
                     data[largeItemType].length > 0 && largeItemType === 'educations'
-                        ? `${data[largeItemType][indexOfDataToChange].school}${
-                              data[largeItemType][indexOfDataToChange].school !== '' &&
-                              data[largeItemType][indexOfDataToChange].course !== ''
-                                  ? ','
-                                  : ''
-                          } ${data[largeItemType][indexOfDataToChange].course}`
+                        ? data[largeItemType][indexOfDataToChange].school !== '' ||
+                          data[largeItemType][indexOfDataToChange].course !== ''
+                            ? `${data[largeItemType][indexOfDataToChange].school}${
+                                  data[largeItemType][indexOfDataToChange].school !== '' &&
+                                  data[largeItemType][indexOfDataToChange].course !== ''
+                                      ? ','
+                                      : ''
+                              } ${data[largeItemType][indexOfDataToChange].course}`
+                            : 'School, Course'
                         : data[largeItemType].length > 0 && largeItemType === 'experiences'
-                        ? `${data[largeItemType][indexOfDataToChange].company}${
-                              data[largeItemType][indexOfDataToChange].company !== '' &&
-                              data[largeItemType][indexOfDataToChange].position !== ''
-                                  ? ','
-                                  : ''
-                          } ${data[largeItemType][indexOfDataToChange].position}`
-                        : ''
+                        ? data[largeItemType][indexOfDataToChange].company !== '' ||
+                          data[largeItemType][indexOfDataToChange].position !== ''
+                            ? `${data[largeItemType][indexOfDataToChange].company}${
+                                  data[largeItemType][indexOfDataToChange].company !== '' &&
+                                  data[largeItemType][indexOfDataToChange].position !== ''
+                                      ? ','
+                                      : ''
+                              } ${data[largeItemType][indexOfDataToChange].position}`
+                            : 'Company, Position'
+                        : 'Fill you new info here'
                 }
                 isMainBtnExpanded={isExpanded}
                 isMainHeadingButton={false}
@@ -144,7 +182,12 @@ const LargeItem = ({ largeItemType = '', indexOfDataToChange = null, data, setDa
                         ))}
 
                     <div className="btnsWrapper">
-                        <AddBtn addBtnContent="Add key point" data={data} setData={setData} />
+                        <AddBtn
+                            addBtnContent="Add key point"
+                            addBtnClickHandler={addLargeKeyPointBtnHandler}
+                            data={data}
+                            setData={setData}
+                        />
                     </div>
                 </div>
             </div>

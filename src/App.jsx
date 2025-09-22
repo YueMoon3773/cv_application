@@ -4,7 +4,6 @@ import SideControllers from './components/sideControllers/sideControllers';
 import FormWrapper from './components/formWrapper/form';
 import ResumeDisplay from './components/resumeDisplay/resumeDisplay';
 
-import database from './assets/data/dataManager';
 import dataStructure from './assets/data/dataStructure';
 import databaseSampleData from './assets/data/dataSample';
 
@@ -21,7 +20,6 @@ function App() {
     // const [isSampleData, setIsSampleData] = useState(false);
 
     const [activeSampleId, setActiveSampleId] = useState(1);
-    
 
     console.log(data);
 
