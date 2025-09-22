@@ -10,7 +10,7 @@ import FormController from '../formController/formController';
 
 import './formCard.scss';
 
-const FormCard = ({ cardType = '', isSampleData, data, setData, sampleData, setSampleData }) => {
+const FormCard = ({ cardType = '', data, setData, sampleData = null, setSampleData = null }) => {
     const [isExpanded, setIsExpanded] = useState(false);
 
     const handleExpand = () => setIsExpanded(!isExpanded);
@@ -24,7 +24,7 @@ const FormCard = ({ cardType = '', isSampleData, data, setData, sampleData, setS
                         isMainBtnExpanded={isExpanded}
                         handleExpand={handleExpand}
                     />
-                    <PersonalInfo isSampleData={isSampleData} data={data} setData={setData} isExpanded={isExpanded} />
+                    <PersonalInfo data={data} setData={setData} isExpanded={isExpanded} />
                 </>
             )}
             {cardType === 'profileSummary' && (
@@ -34,7 +34,7 @@ const FormCard = ({ cardType = '', isSampleData, data, setData, sampleData, setS
                         isMainBtnExpanded={isExpanded}
                         handleExpand={handleExpand}
                     />
-                    <ProfileSummary isSampleData={isSampleData} data={data} setData={setData} isExpanded={isExpanded} />
+                    <ProfileSummary data={data} setData={setData} isExpanded={isExpanded} />
                 </>
             )}
             {cardType === 'educations' && (
@@ -49,7 +49,6 @@ const FormCard = ({ cardType = '', isSampleData, data, setData, sampleData, setS
                         data={data}
                         setData={setData}
                         isExpanded={isExpanded}
-                        isSampleData={isSampleData}
                     />
                 </>
             )}
@@ -65,7 +64,6 @@ const FormCard = ({ cardType = '', isSampleData, data, setData, sampleData, setS
                         data={data}
                         setData={setData}
                         isExpanded={isExpanded}
-                        isSampleData={isSampleData}
                     />
                 </>
             )}
@@ -76,7 +74,7 @@ const FormCard = ({ cardType = '', isSampleData, data, setData, sampleData, setS
                         isMainBtnExpanded={isExpanded}
                         handleExpand={handleExpand}
                     />
-                    <AdditionalInfo isSampleData={isSampleData} data={data} setData={setData} isExpanded={isExpanded} />
+                    <AdditionalInfo data={data} setData={setData} isExpanded={isExpanded} />
                 </>
             )}
             {cardType === 'controller' && (
@@ -87,7 +85,6 @@ const FormCard = ({ cardType = '', isSampleData, data, setData, sampleData, setS
                         handleExpand={handleExpand}
                     />
                     <FormController
-                        isSampleData={isSampleData}
                         data={data}
                         setData={setData}
                         isExpanded={isExpanded}

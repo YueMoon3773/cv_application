@@ -1,4 +1,5 @@
 const sampleData1 = {
+    font: 'Ledger',
     firstName: 'Mike',
     lastName: 'Wazowski',
     jobTitle: 'Senior Scarer & Co-President of Monsters, Inc.',
@@ -86,6 +87,15 @@ const sampleData1 = {
             ],
         },
     ],
+    languages: ['Monster Common Tongue (Native)', 'Human (Conversational)'],
+    strengths: [
+        'Strategic Thinking',
+        'Meticulous Planning',
+        'Humor and Wit',
+        'Loyalty',
+        'Persistence',
+        'Problem-Solving',
+    ],
     skills: [
         'Leadership',
         'Strategy Development',
@@ -98,13 +108,16 @@ const sampleData1 = {
         'Logistics',
         'Humor',
     ],
-    more: [
+    'Extra details': [
         'Employee of the Month (Nov 2001)',
         'Co-founder of the Laugh Energy Revolution',
         'Big fan of comedy shows and stand-up humor',
     ],
+    // something: [],
+    // 'Something Else': [],
 };
 const sampleData2 = {
+    font: 'Ledger',
     firstName: 'James P.',
     lastName: 'Sullivan',
     jobTitle: 'Senior Scarer & Co-President of Monsters, Inc.',
@@ -188,6 +201,15 @@ const sampleData2 = {
             ],
         },
     ],
+    languages: ['Monster Common Tongue (Native)', 'Human (Conversational)'],
+    strengths: [
+        'Charismatic Leadership',
+        'Courage and Bravery',
+        'Empathy',
+        'Team-oriented',
+        'Adaptability',
+        'Mentoring',
+    ],
     skills: [
         'Leadership',
         'Motivation & Inspiration',
@@ -199,7 +221,7 @@ const sampleData2 = {
         'Physical Performance',
         'Mentoring',
     ],
-    more: [
+    'Extra details': [
         'Former Monsters, Inc. record-holding scarer',
         'CEO who pioneered laugh energy revolution',
         'Lifetime best friend and partner to Mike Wazowski',

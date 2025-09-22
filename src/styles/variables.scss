@@ -30,6 +30,8 @@ $primary_dark_color: #3f97ca;
 $primary_darker_color: #3081b0;
 $primary_darkest_color: #185375;
 
+$active_style_btn: #ffa52f;
+
 $cv_primary_color: #d1e9f0;
 $cv_heading_color: #225d81;
 $cv_sub_heading_color: #2b74a1;
@@ -64,7 +66,7 @@ $form_card_width: max(560px, 580px);
 $form_card_content_row_gap: clamp(26px, 2.66em, 28px);
 $form_card_content_column_gap: clamp(14px, 1.6em, 18px);
 $form_card_sections_gap: clamp(20px, 2.4em, 26px);
-$form_card_items_gap: clamp(18px, 1.86em, 24px);
+$form_card_items_gap: clamp(20px, 2.2em, 24px);
 
 $form_controller_heading_top: clamp(-18px, 2em, -20px);
 $form_controller_heading_left: clamp(12px, 1.4em, 14px);

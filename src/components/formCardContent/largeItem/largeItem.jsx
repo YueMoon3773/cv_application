@@ -7,28 +7,30 @@ import AddBtn from '../../addButton/addButton';
 
 import './largeItem.scss';
 
-const LargeItem = ({ largeItemType = '', isSampleData, indexOfDataToChange = null, data, setData }) => {
+const LargeItem = ({ largeItemType = '', indexOfDataToChange = null, data, setData }) => {
     const [isExpanded, setIsExpanded] = useState(false);
     const handleExpand = () => setIsExpanded(!isExpanded);
 
-    // let sampleData;
-    // if (isSampleData === true) {
-    //     if (data.getSampleData().activeSampleId === 1) {
-    //         sampleData = data.getSampleData().sampleData1;
-    //     } else if (data.getSampleData().activeSampleId === 2) {
-    //         sampleData = data.getSampleData().sampleData2;
-    //     }
-    // }
-    // console.log(sampleData.experiences[indexOfDataToChange].expDescription);
+    // console.log(data.experiences[indexOfDataToChange].expDescription);
 
     return (
         <div className="largeItem">
             <CardHeadingButton
                 btnContent={
-                    isSampleData === true && largeItemType === 'educations'
-                        ? `${data[largeItemType][indexOfDataToChange].school}, ${data[largeItemType][indexOfDataToChange].course}`
-                        : isSampleData === true && largeItemType === 'experiences'
-                        ? `${data[largeItemType][indexOfDataToChange].company}, ${data[largeItemType][indexOfDataToChange].position}`
+                    data[largeItemType].length > 0 && largeItemType === 'educations'
+                        ? `${data[largeItemType][indexOfDataToChange].school}${
+                              data[largeItemType][indexOfDataToChange].school !== '' &&
+                              data[largeItemType][indexOfDataToChange].course !== ''
+                                  ? ','
+                                  : ''
+                          } ${data[largeItemType][indexOfDataToChange].course}`
+                        : data[largeItemType].length > 0 && largeItemType === 'experiences'
+                        ? `${data[largeItemType][indexOfDataToChange].company}${
+                              data[largeItemType][indexOfDataToChange].company !== '' &&
+                              data[largeItemType][indexOfDataToChange].position !== ''
+                                  ? ','
+                                  : ''
+                          } ${data[largeItemType][indexOfDataToChange].position}`
                         : ''
                 }
                 isMainBtnExpanded={isExpanded}
@@ -116,9 +118,9 @@ const LargeItem = ({ largeItemType = '', isSampleData, indexOfDataToChange = nul
                             <CardTextArea
                                 labelContent={`Key point ${index + 1}`}
                                 textAreaDisplayLines={2}
+                                textAreaPlaceholder="Your key point"
                                 data={data}
                                 setData={setData}
-                                isSampleData={isSampleData}
                                 indexOfLargeItem={indexOfDataToChange}
                                 indexOfDataToChange={index}
                                 dataToChange="eduDescription"
@@ -131,9 +133,9 @@ const LargeItem = ({ largeItemType = '', isSampleData, indexOfDataToChange = nul
                             <CardTextArea
                                 labelContent={`Key point ${index + 1}`}
                                 textAreaDisplayLines={2}
+                                textAreaPlaceholder="Your key point"
                                 data={data}
                                 setData={setData}
-                                isSampleData={isSampleData}
                                 indexOfLargeItem={indexOfDataToChange}
                                 indexOfDataToChange={index}
                                 dataToChange="expDescription"
@@ -142,12 +144,7 @@ const LargeItem = ({ largeItemType = '', isSampleData, indexOfDataToChange = nul
                         ))}
 
                     <div className="btnsWrapper">
-                        <AddBtn
-                            addBtnContent="Add key point"
-                            isSampleData={isSampleData}
-                            data={data}
-                            setData={setData}
-                        />
+                        <AddBtn addBtnContent="Add key point" data={data} setData={setData} />
                     </div>
                 </div>
             </div>

@@ -13,7 +13,7 @@ const database = () => {
         experiences: [],
         educations: [],
         skills: [],
-        more: [],
+        'Extra details': [],
     };
 
     const fontsList = ['Ledger', 'Roboto', 'Sono'];
@@ -139,7 +139,7 @@ const database = () => {
             'Logistics',
             'Humor',
         ],
-        more: [
+        'Extra details': [
             'Employee of the Month (Nov 2001)',
             'Co-founder of the Laugh Energy Revolution',
             'Big fan of comedy shows and stand-up humor',
@@ -240,7 +240,7 @@ const database = () => {
             'Physical Performance',
             'Mentoring',
         ],
-        more: [
+        'Extra details': [
             'Former Monsters, Inc. record-holding scarer',
             'CEO who pioneered laugh energy revolution',
             'Lifetime best friend and partner to Mike Wazowski',

@@ -1,14 +1,40 @@
-.resumeDisplay {
+.sideWrapper:has(.resumeDisplay) {
     align-self: flex-start;
     position: sticky;
-    top: 2rem;
-    height: $resume_preview_max_height;
-    width: calc($resume_preview_max_height * $resume_ratio);
+    @include flexColumn;
+    top: 0;
+    height: 100vh;
+}
+
+.resumeDisplay {
+    // position: sticky;
+    @include flexColumn;
+    top: 0;
+    height: 100%;
+    background-color: rgb(251, 189, 189);
 }
 
 .resume {
-    width: 100%;
+    // width: 100%;
+    position: sticky;
+    font-size: 1rem;
+    top: 2rem;
+    height: $resume_preview_max_height;
+    width: calc($resume_preview_max_height * $resume_ratio);
     aspect-ratio: 1 / 1.42;
 
     background-color: $white_color;
+}
+
+#measureBox {
+    position: absolute;
+    width: 100%;
+    visibility: hidden;
+    top: -9999px;
+
+    & > .resume {
+        width: calc($resume_preview_max_height * $resume_ratio);
+        aspect-ratio: 1 / 1.42;
+        background-color: blue;
+    }
 }

@@ -1,5 +1,5 @@
 const dataStructure = {
-    font: '',
+    font: 'Ledger',
     firstName: '',
     lastName: '',
     jobTitle: '',
@@ -12,7 +12,9 @@ const dataStructure = {
     experiences: [],
     educations: [],
     skills: [],
-    more: [],
+    languages: [],
+    strengths: [],
+    'Extra details': [],
 };
 
 export default dataStructure;

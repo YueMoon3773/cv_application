@@ -1,9 +1,8 @@
 import { useState } from 'react';
 
+import DeleteButton from '../deleteButton/deleteButton';
 import {
     ArrowIcon,
-    DeleteEmptyIcon,
-    DeleteFullIcon,
     PersonalInfoIcon,
     ProfileSummaryIcon,
     WorkExperienceIcon,
@@ -20,7 +19,6 @@ import './cardHeadingButton.scss';
 const CardHeadingButton = ({ btnContent, isMainHeadingButton = true, isMainBtnExpanded, handleExpand }) => {
     let btnIcon = null;
     // const [isMainBtnExpanded, setIsMainBtnExpanded] = useState(false);
-    const [hideDeleteFullBtn, setHideDeleteFullBtn] = useState(true);
 
     switch (btnContent) {
         case 'Personal Information':
@@ -36,6 +34,9 @@ const CardHeadingButton = ({ btnContent, isMainHeadingButton = true, isMainBtnEx
             btnIcon = <WorkExperienceIcon />;
             break;
         case 'Skills':
+        case 'Skill':
+        case 'skills':
+        case 'skill':
             btnIcon = <SkillsIcon />;
             break;
         case 'Additional Information':
@@ -44,7 +45,10 @@ const CardHeadingButton = ({ btnContent, isMainHeadingButton = true, isMainBtnEx
         case 'Certificate':
             btnIcon = <CertificateIcon />;
             break;
+        case 'Languages':
         case 'Language':
+        case 'languages':
+        case 'language':
             btnIcon = <LanguageIcon />;
             break;
         case 'Controller':
@@ -85,14 +89,7 @@ const CardHeadingButton = ({ btnContent, isMainHeadingButton = true, isMainBtnEx
                         <ArrowIcon />
                     </button>
 
-                    <button
-                        type="button"
-                        className="deleteBtn"
-                        onMouseOver={() => setHideDeleteFullBtn(false)}
-                        onMouseLeave={() => setHideDeleteFullBtn(true)}
-                    >
-                        {hideDeleteFullBtn === true ? <DeleteEmptyIcon /> : <DeleteFullIcon />}
-                    </button>
+                    <DeleteButton />
                 </div>
             )}
         </>

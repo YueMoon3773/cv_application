@@ -97,21 +97,4 @@
     }
 }
 
-.deleteBtn {
-    background-color: transparent;
-    border: none;
-    outline: none;
-    width: calc($fs_heading_sm * 2);
-    aspect-ratio: 1 / 1;
-    cursor: pointer;
 
-    & > svg {
-        height: $fs_heading_sm;
-        color: $red_color;
-        @include shortTransition;
-
-        &:hover {
-            color: $dark_red_color;
-        }
-    }
-}

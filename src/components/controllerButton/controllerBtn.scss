@@ -3,7 +3,7 @@
     @include flexCenter;
     gap: clamp(4px, 0.56em, 6px);
     font-size: $fs_normal_lg;
-    font-weight: 600;
+    font-weight: 400;
     color: $white_text;
     padding: 0.56em 0.6em;
 
@@ -14,6 +14,11 @@
     border-color: transparent;
     z-index: 0;
     @include normalTransition;
+
+    &.active {
+        color: $active_style_btn;
+        font-weight: 900;
+    }
 
     .cardBtnIcon {
         height: $fs_normal_xl;
@@ -85,6 +90,9 @@
         }
         &::after {
             transform: rotateY(0);
+        }
+        &.active {
+            color: $active_style_btn;
         }
     }
 }

@@ -4,7 +4,7 @@ import ControllerBtn from '../controllerButton/controllerBtn';
 
 import './formControllerItem.scss';
 
-const FormControllerItem = ({ itemHeading = '', isSampleData, data, setData, sampleData, setSampleData }) => {
+const FormControllerItem = ({ itemHeading = '', data, setData, sampleData, setSampleData }) => {
     return (
         <div className="formControllerItem">
             <h3 className="itemHeading">{itemHeading}</h3>
@@ -13,7 +13,6 @@ const FormControllerItem = ({ itemHeading = '', isSampleData, data, setData, sam
                     <>
                         <ControllerBtn
                             btnContent="Clear all"
-                            isSampleData={isSampleData}
                             btnFunc="clearAll"
                             data={data}
                             setData={setData}
@@ -22,7 +21,6 @@ const FormControllerItem = ({ itemHeading = '', isSampleData, data, setData, sam
                         />
                         <ControllerBtn
                             btnContent="Sample resume"
-                            isSampleData={isSampleData}
                             btnFunc="sampleResume"
                             data={data}
                             setData={setData}
@@ -36,7 +34,7 @@ const FormControllerItem = ({ itemHeading = '', isSampleData, data, setData, sam
                         <ControllerBtn
                             btnContent="Ledger"
                             btnStyle="Ledger"
-                            isSampleData={isSampleData}
+                            btnFunc="changeFont"
                             data={data}
                             setData={setData}
                             sampleData={sampleData}
@@ -45,7 +43,7 @@ const FormControllerItem = ({ itemHeading = '', isSampleData, data, setData, sam
                         <ControllerBtn
                             btnContent="Roboto"
                             btnStyle="Roboto"
-                            isSampleData={isSampleData}
+                            btnFunc="changeFont"
                             data={data}
                             setData={setData}
                             sampleData={sampleData}
@@ -54,7 +52,7 @@ const FormControllerItem = ({ itemHeading = '', isSampleData, data, setData, sam
                         <ControllerBtn
                             btnContent="Sono"
                             btnStyle="Sono"
-                            isSampleData={isSampleData}
+                            btnFunc="changeFont"
                             data={data}
                             setData={setData}
                             sampleData={sampleData}

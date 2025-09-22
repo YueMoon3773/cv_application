@@ -15,24 +15,20 @@ function App() {
     const [data, setData] = useState(databaseSampleData.sampleData1);
 
     const [sampleData, setSampleData] = useState(databaseSampleData);
-    const [resumeFont, setResumeFont] = useState('Ledger');
+    // const [resumeFont, setResumeFont] = useState('Ledger');
 
-    const [isSampleData, setIsSampleData] = useState(true);
+    // const [isSampleData, setIsSampleData] = useState(true);
     // const [isSampleData, setIsSampleData] = useState(false);
+
     const [activeSampleId, setActiveSampleId] = useState(1);
+    
 
     console.log(data);
 
     return (
         <div className="app">
             <SideControllers />
-            <FormWrapper
-                isSampleData={isSampleData}
-                data={data}
-                setData={setData}
-                sampleData={sampleData}
-                setSampleData={setSampleData}
-            />
+            <FormWrapper data={data} setData={setData} sampleData={sampleData} setSampleData={setSampleData} />
             <ResumeDisplay />
         </div>
     );

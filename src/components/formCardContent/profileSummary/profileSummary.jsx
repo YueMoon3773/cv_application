@@ -4,7 +4,7 @@ import CardTextArea from '../../cardTextArea/cardTextArea';
 
 import './profileSummary.scss';
 
-const ProfileSummary = ({ isExpanded = false, isSampleData, data, setData }) => {
+const ProfileSummary = ({ isExpanded = false, data, setData }) => {
     return (
         <div className={`formContent ${isExpanded === true ? 'expanded' : ''}`}>
             <div className="profileSummary">
@@ -17,7 +17,6 @@ const ProfileSummary = ({ isExpanded = false, isSampleData, data, setData }) => 
                     textAreaDisplayLines={5}
                     textAreaPlaceholder="Your profile summary"
                     dataToChange="profile"
-                    isSampleData={isSampleData}
                     data={data}
                     setData={setData}
                 />

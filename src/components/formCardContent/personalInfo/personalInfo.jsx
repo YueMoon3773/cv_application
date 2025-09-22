@@ -5,7 +5,7 @@ import AddBtn from '../../addButton/addButton';
 
 import './personalInfo.scss';
 
-const PersonalInfo = ({ isExpanded = false, isSampleData, data, setData }) => {
+const PersonalInfo = ({ isExpanded = false, data, setData }) => {
     return (
         <div className={`formContent ${isExpanded === true ? 'expanded' : ''}`}>
             <div className="personalInfo">
@@ -18,7 +18,6 @@ const PersonalInfo = ({ isExpanded = false, isSampleData, data, setData }) => {
                     data={data}
                     setData={setData}
                     dataToChange="firstName"
-                    isSampleData={isSampleData}
                 />
                 <CardInput
                     labelContent="Last name"
@@ -29,7 +28,6 @@ const PersonalInfo = ({ isExpanded = false, isSampleData, data, setData }) => {
                     data={data}
                     setData={setData}
                     dataToChange="lastName"
-                    isSampleData={isSampleData}
                 />
                 <CardInput
                     labelContent="Professional title"
@@ -41,7 +39,6 @@ const PersonalInfo = ({ isExpanded = false, isSampleData, data, setData }) => {
                     data={data}
                     setData={setData}
                     dataToChange="jobTitle"
-                    isSampleData={isSampleData}
                 />
                 <CardInput
                     labelContent="Phone"
@@ -51,7 +48,6 @@ const PersonalInfo = ({ isExpanded = false, isSampleData, data, setData }) => {
                     data={data}
                     setData={setData}
                     dataToChange="phone"
-                    isSampleData={isSampleData}
                 />
                 <CardInput
                     labelContent="Email"
@@ -61,7 +57,6 @@ const PersonalInfo = ({ isExpanded = false, isSampleData, data, setData }) => {
                     data={data}
                     setData={setData}
                     dataToChange="email"
-                    isSampleData={isSampleData}
                 />
                 <CardInput
                     labelContent="Location"
@@ -72,7 +67,6 @@ const PersonalInfo = ({ isExpanded = false, isSampleData, data, setData }) => {
                     data={data}
                     setData={setData}
                     dataToChange="location"
-                    isSampleData={isSampleData}
                 />
                 <CardInput
                     labelContent="Github link"
@@ -83,7 +77,6 @@ const PersonalInfo = ({ isExpanded = false, isSampleData, data, setData }) => {
                     data={data}
                     setData={setData}
                     dataToChange="github"
-                    isSampleData={isSampleData}
                 />
                 <CardInput
                     labelContent="Personal website"
@@ -94,11 +87,10 @@ const PersonalInfo = ({ isExpanded = false, isSampleData, data, setData }) => {
                     data={data}
                     setData={setData}
                     dataToChange="website"
-                    isSampleData={isSampleData}
                 />
             </div>
             {/* <div className="btnsWrapper">
-                <AddBtn addBtnContent="Add website" isSampleData={isSampleData} data={data} setData={setData} />
+                <AddBtn addBtnContent="Add website"  data={data} setData={setData} />
             </div> */}
         </div>
     );

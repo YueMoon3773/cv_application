@@ -2,24 +2,39 @@ import { useState } from 'react';
 
 import CardHeadingButton from '../../cardHeadingButton/cardHeadingButton';
 import CardInput from '../../cardInput/cardInput';
-import CardTextArea from '../../cardTextArea/cardTextArea';
 import AddBtn from '../../addButton/addButton';
+import SmallItemKeyPoint from '../smallItemKeyPoint/smallItemKeyPoint';
 
 import './smallItem.scss';
 
-const SmallItem = ({ isSampleData, data, setData }) => {
+const SmallItem = ({ smallItemHeading = '', smallItemVal = null, data, setData }) => {
     const [isExpanded, setIsExpanded] = useState(false);
-    const [smallItemHeading, setSmallItemHeading] = useState('');
-
     const handleExpand = () => setIsExpanded(!isExpanded);
-    const handleChangeSmallItemHeading = (e) => {
-        setSmallItemHeading(e.target.value);
-    };
+
+    let itemHeading;
+
+    switch (smallItemHeading) {
+        case 'skills':
+            itemHeading = 'Skills';
+            break;
+        case 'languages':
+            itemHeading = 'Languages';
+            break;
+        case 'strengths':
+            itemHeading = 'Strengths';
+            break;
+        case 'more':
+            itemHeading = 'Extra Details';
+            break;
+        default:
+            itemHeading = smallItemHeading;
+            break;
+    }
 
     return (
         <div className="smallItem">
             <CardHeadingButton
-                btnContent={smallItemHeading === '' ? 'Section Title' : smallItemHeading}
+                btnContent={itemHeading}
                 isMainBtnExpanded={isExpanded}
                 isMainHeadingButton={false}
                 handleExpand={handleExpand}
@@ -30,28 +45,38 @@ const SmallItem = ({ isSampleData, data, setData }) => {
                         labelContent="Section title"
                         inpType="text"
                         inpPlaceholder="Section title. Ex: Skills"
-                        inpValue={smallItemHeading}
-                        customOnChange={handleChangeSmallItemHeading}
+                        // inpValue={smallItemHeading}
+                        // customOnChange={handleChangeSmallItemHeading}
                         data={data}
                         setData={setData}
-                        dataToChange=""
+                        dataToChange={smallItemHeading}
                     />
-                    <CardInput
-                        labelContent="Key point"
-                        inpType="text"
-                        inpPlaceholder="1988"
-                        inpValue="1988"
-                        data={data}
-                        setData={setData}
-                        dataToChange=""
-                    />
-                    <div className="btnsWrapper">
-                        <AddBtn
-                            addBtnContent="Add key point"
-                            isSampleData={isSampleData}
+                    {smallItemVal !== null && Array.isArray(smallItemVal) && smallItemVal.length !== 0 ? (
+                        smallItemVal.map((item, index) => {
+                            // console.log(smallItemHeading);
+                            // console.log(item);
+                            return (
+                                <SmallItemKeyPoint
+                                    keyPointIndex={index}
+                                    keyPointDataToChange={smallItemHeading}
+                                    data={data}
+                                    setData={setData}
+                                    key={index}
+                                />
+                            );
+                        })
+                    ) : smallItemVal !== null && Array.isArray(smallItemVal) && smallItemVal.length === 0 ? (
+                        <SmallItemKeyPoint
+                            keyPointIndex={0}
+                            keyPointDataToChange={smallItemHeading}
                             data={data}
                             setData={setData}
                         />
+                    ) : (
+                        ''
+                    )}
+                    <div className="btnsWrapper">
+                        <AddBtn addBtnContent="Add key point" data={data} setData={setData} />
                     </div>
                 </div>
             </div>

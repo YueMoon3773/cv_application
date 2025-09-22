@@ -1,0 +1,14 @@
+.additionalInfoItemKeyPoint {
+    @include flexCenter;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    & > *:first-child {
+        width: 90%;
+    }
+
+    // & > *:last-child {
+    //     height: 100%;
+    //     overflow: hidden;
+    // }
+}
