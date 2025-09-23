@@ -12,6 +12,7 @@ import {
     LanguageIcon,
     CertificateIcon,
     ControllerIcon,
+    StrengthsIcon,
 } from '../../assets/data/svgIcons';
 
 import './cardHeadingButton.scss';
@@ -42,7 +43,10 @@ const CardHeadingButton = ({ btnContent, isMainHeadingButton = true, isMainBtnEx
         case 'Additional Information':
             btnIcon = <AdditionalInfoIcon />;
             break;
+        case 'Certificates':
         case 'Certificate':
+        case 'certificates':
+        case 'certificate':
             btnIcon = <CertificateIcon />;
             break;
         case 'Languages':
@@ -50,6 +54,12 @@ const CardHeadingButton = ({ btnContent, isMainHeadingButton = true, isMainBtnEx
         case 'languages':
         case 'language':
             btnIcon = <LanguageIcon />;
+            break;
+        case 'Strengths':
+        case 'Strength':
+        case 'strengths':
+        case 'strength':
+            btnIcon = <StrengthsIcon />;
             break;
         case 'Controller':
             btnIcon = <ControllerIcon />;

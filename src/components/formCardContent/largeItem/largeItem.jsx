@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import CardHeadingButton from '../../cardHeadingButton/cardHeadingButton';
 import CardInput from '../../cardInput/cardInput';
+import LargeItemKeyPoint from '../largeItemKeyPoint/largeItemKeyPoint';
 import CardTextArea from '../../cardTextArea/cardTextArea';
 import AddBtn from '../../addButton/addButton';
 
@@ -153,30 +154,26 @@ const LargeItem = ({ largeItemType = '', indexOfDataToChange = null, data, setDa
                     {largeItemType === 'educations' &&
                         data[largeItemType].length > 0 &&
                         data.educations[indexOfDataToChange].eduDescription.map((item, index) => (
-                            <CardTextArea
-                                labelContent={`Key point ${index + 1}`}
-                                textAreaDisplayLines={2}
-                                textAreaPlaceholder="Your key point"
-                                data={data}
-                                setData={setData}
+                            <LargeItemKeyPoint
+                                linesToDisplay={2}
                                 indexOfLargeItem={indexOfDataToChange}
                                 indexOfDataToChange={index}
                                 dataToChange="eduDescription"
+                                data={data}
+                                setData={setData}
                                 key={index}
                             />
                         ))}
                     {largeItemType === 'experiences' &&
                         data[largeItemType].length > 0 &&
                         data.experiences[indexOfDataToChange].expDescription.map((item, index) => (
-                            <CardTextArea
-                                labelContent={`Key point ${index + 1}`}
-                                textAreaDisplayLines={2}
-                                textAreaPlaceholder="Your key point"
-                                data={data}
-                                setData={setData}
+                            <LargeItemKeyPoint
+                                linesToDisplay={2}
                                 indexOfLargeItem={indexOfDataToChange}
                                 indexOfDataToChange={index}
                                 dataToChange="expDescription"
+                                data={data}
+                                setData={setData}
                                 key={index}
                             />
                         ))}

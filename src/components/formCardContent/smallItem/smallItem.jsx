@@ -7,29 +7,37 @@ import SmallItemKeyPoint from '../smallItemKeyPoint/smallItemKeyPoint';
 
 import './smallItem.scss';
 
-const SmallItem = ({ smallItemHeading = '', smallItemVal = null, data, setData }) => {
+const SmallItem = ({ smallItemHeading = '', smallItemVal = null, smallItemIndex, data, setData }) => {
     const [isExpanded, setIsExpanded] = useState(false);
     const handleExpand = () => setIsExpanded(!isExpanded);
 
-    let itemHeading;
+    let itemHeading = String(smallItemHeading).charAt(0).toUpperCase() + String(smallItemHeading).slice(1);
+    // switch (smallItemHeading) {
+    //     case 'skills':
+    //         itemHeading = 'Skills';
+    //         break;
+    //     case 'languages':
+    //         itemHeading = 'Languages';
+    //         break;
+    //     case 'strengths':
+    //         itemHeading = 'Strengths';
+    //         break;
+    //     case 'more':
+    //         itemHeading = 'Extra Details';
+    //         break;
+    //     default:
+    //         itemHeading = String(smallItemHeading).charAt(0).toUpperCase() + String(smallItemHeading).slice(1);
+    //         break;
+    // }
 
-    switch (smallItemHeading) {
-        case 'skills':
-            itemHeading = 'Skills';
-            break;
-        case 'languages':
-            itemHeading = 'Languages';
-            break;
-        case 'strengths':
-            itemHeading = 'Strengths';
-            break;
-        case 'more':
-            itemHeading = 'Extra Details';
-            break;
-        default:
-            itemHeading = smallItemHeading;
-            break;
-    }
+    const addSmallKeyPointBtnHandler = () => {
+        setData((prev) => {
+            return {
+                ...prev,
+                '': [''],
+            };
+        });
+    };
 
     return (
         <div className="smallItem">
@@ -45,38 +53,34 @@ const SmallItem = ({ smallItemHeading = '', smallItemVal = null, data, setData }
                         labelContent="Section title"
                         inpType="text"
                         inpPlaceholder="Section title. Ex: Skills"
-                        // inpValue={smallItemHeading}
-                        // customOnChange={handleChangeSmallItemHeading}
+                        indexOfDataToChange={smallItemIndex}
                         data={data}
                         setData={setData}
-                        dataToChange={smallItemHeading}
+                        dataToChange={'title'}
                     />
-                    {smallItemVal !== null && Array.isArray(smallItemVal) && smallItemVal.length !== 0 ? (
-                        smallItemVal.map((item, index) => {
-                            // console.log(smallItemHeading);
-                            // console.log(item);
-                            return (
-                                <SmallItemKeyPoint
-                                    keyPointIndex={index}
-                                    keyPointDataToChange={smallItemHeading}
-                                    data={data}
-                                    setData={setData}
-                                    key={index}
-                                />
-                            );
-                        })
-                    ) : smallItemVal !== null && Array.isArray(smallItemVal) && smallItemVal.length === 0 ? (
-                        <SmallItemKeyPoint
-                            keyPointIndex={0}
-                            keyPointDataToChange={smallItemHeading}
+                    {smallItemVal !== null && smallItemVal.length !== 0
+                        ? smallItemVal.map((item, index) => {
+                              // console.log(smallItemHeading);
+                              // console.log(item);
+                              return (
+                                  <SmallItemKeyPoint
+                                      indexOfLargeItem={smallItemIndex}
+                                      keyPointIndex={index}
+                                      keyPointDataToChange={'details'}
+                                      data={data}
+                                      setData={setData}
+                                      key={index}
+                                  />
+                              );
+                          })
+                        : ''}
+                    <div className="btnsWrapper">
+                        <AddBtn
+                            addBtnContent="Add key point"
+                            addBtnClickHandler={addSmallKeyPointBtnHandler}
                             data={data}
                             setData={setData}
                         />
-                    ) : (
-                        ''
-                    )}
-                    <div className="btnsWrapper">
-                        <AddBtn addBtnContent="Add key point" data={data} setData={setData} />
                     </div>
                 </div>
             </div>

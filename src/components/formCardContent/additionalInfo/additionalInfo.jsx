@@ -34,9 +34,9 @@ const AdditionalInfo = ({ isExpanded = false, data, setData }) => {
     return (
         <div className={`formContent ${isExpanded === true ? 'expanded' : ''}`}>
             <div className="additionalInfo">
-                {Object.keys(additionalInfoItems).length > 0
+                {/* {Object.keys(additionalInfoItems).length > 0
                     ? Object.entries(additionalInfoItems).map(([key, val], index) => {
-                          console.log({ key, val });
+                          //   console.log({ key, val });
                           return (
                               <SmallItem
                                   smallItemHeading={key}
@@ -47,8 +47,21 @@ const AdditionalInfo = ({ isExpanded = false, data, setData }) => {
                               />
                           );
                       })
+                    : ''} */}
+                {data.more.length > 0
+                    ? data.more.map((item, index) => {
+                          return (
+                              <SmallItem
+                                  smallItemHeading={item.title}
+                                  smallItemVal={item.details}
+                                  data={data}
+                                  setData={setData}
+                                  smallItemIndex={index}
+                                  key={index}
+                              />
+                          );
+                      })
                     : ''}
-                {/* <SmallItem data={data} setData={setData} /> */}
             </div>
             <div className="btnsWrapper">
                 <AddBtn addBtnContent="Add section item" data={data} setData={setData} />

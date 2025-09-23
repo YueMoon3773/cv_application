@@ -15,10 +15,16 @@ const educationStructure = {
     eduDescription: [],
 };
 
+const moreStructure = {
+    title: '',
+    details: [],
+};
+
 const fontsList = ['Ledger', 'Roboto', 'Sono'];
 
 export const getExperiencesStructure = () => experiencesStructure;
 export const getEducationStructure = () => educationStructure;
+export const getMoreStructure = () => moreStructure;
 export const getFonts = () => fontsList;
 export const switchActiveId = (sampleData) => {
     if (sampleData.activeSampleId === 1) {

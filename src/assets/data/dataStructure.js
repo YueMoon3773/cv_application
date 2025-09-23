@@ -11,10 +11,7 @@ const dataStructure = {
     location: '',
     experiences: [],
     educations: [],
-    skills: [],
-    languages: [],
-    strengths: [],
-    'Extra details': [],
+    more: [],
 };
 
 export default dataStructure;

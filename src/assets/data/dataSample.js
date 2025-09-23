@@ -87,34 +87,54 @@ const sampleData1 = {
             ],
         },
     ],
-    languages: ['Monster Common Tongue (Native)', 'Human (Conversational)'],
-    strengths: [
-        'Strategic Thinking',
-        'Meticulous Planning',
-        'Humor and Wit',
-        'Loyalty',
-        'Persistence',
-        'Problem-Solving',
+    more: [
+        {
+            title: 'languages',
+            details: ['Monster Common Tongue (Native)', 'Human (Conversational)'],
+        },
+        {
+            title: 'strengths',
+            details: [
+                'Strategic Thinking',
+                'Meticulous Planning',
+                'Humor and Wit',
+                'Loyalty',
+                'Persistence',
+                'Problem-Solving',
+            ],
+        },
+        {
+            title: 'skills',
+            details: [
+                'Leadership',
+                'Strategy Development',
+                'Comedy & Stand-up',
+                'Public Speaking',
+                'Administrative Management',
+                'Teamwork',
+                'Problem-Solving',
+                'Energy Management',
+                'Logistics',
+                'Humor',
+            ],
+        },
+        {
+            title: 'Extra details',
+            details: [
+                'Employee of the Month (Nov 2001)',
+                'Co-founder of the Laugh Energy Revolution',
+                'Big fan of comedy shows and stand-up humor',
+            ],
+        },
+        {
+            title: 'certificates',
+            details: [
+                'Level 3 Certified Laugh-Energy Consultant',
+                'Monstropolis Safety Council: Child-Safety First Responder',
+                'Advanced Public Speaking & Comedy Workshop',
+            ],
+        },
     ],
-    skills: [
-        'Leadership',
-        'Strategy Development',
-        'Comedy & Stand-up',
-        'Public Speaking',
-        'Administrative Management',
-        'Teamwork',
-        'Problem-Solving',
-        'Energy Management',
-        'Logistics',
-        'Humor',
-    ],
-    'Extra details': [
-        'Employee of the Month (Nov 2001)',
-        'Co-founder of the Laugh Energy Revolution',
-        'Big fan of comedy shows and stand-up humor',
-    ],
-    // something: [],
-    // 'Something Else': [],
 };
 const sampleData2 = {
     font: 'Ledger',
@@ -201,30 +221,52 @@ const sampleData2 = {
             ],
         },
     ],
-    languages: ['Monster Common Tongue (Native)', 'Human (Conversational)'],
-    strengths: [
-        'Charismatic Leadership',
-        'Courage and Bravery',
-        'Empathy',
-        'Team-oriented',
-        'Adaptability',
-        'Mentoring',
-    ],
-    skills: [
-        'Leadership',
-        'Motivation & Inspiration',
-        'Scaring & Laugh Energy Generation',
-        'Team Management',
-        'Resilience',
-        'Public Relations',
-        'Conflict Resolution',
-        'Physical Performance',
-        'Mentoring',
-    ],
-    'Extra details': [
-        'Former Monsters, Inc. record-holding scarer',
-        'CEO who pioneered laugh energy revolution',
-        'Lifetime best friend and partner to Mike Wazowski',
+    more: [
+        {
+            title: 'languages',
+            details: ['Monster Common Tongue (Native)', 'Human (Conversational)'],
+        },
+        {
+            title: 'strengths',
+            details: [
+                'Charismatic Leadership',
+                'Courage and Bravery',
+                'Empathy',
+                'Team-oriented',
+                'Adaptability',
+                'Mentoring',
+            ],
+        },
+        {
+            title: 'skills',
+            details: [
+                'Leadership',
+                'Motivation & Inspiration',
+                'Scaring & Laugh Energy Generation',
+                'Team Management',
+                'Resilience',
+                'Public Relations',
+                'Conflict Resolution',
+                'Physical Performance',
+                'Mentoring',
+            ],
+        },
+        {
+            title: 'Extra details',
+            details: [
+                'Former Monsters, Inc. record-holding scarer',
+                'CEO who pioneered laugh energy revolution',
+                'Lifetime best friend and partner to Mike Wazowski',
+            ],
+        },
+        {
+            title: 'certificates',
+            details: [
+                'Certified Laughter-Energy Technician',
+                'Monstropolis Safety Council: Child-Safety First Responder',
+                'Top Scarer Achievement Award (2002-2012)',
+            ],
+        },
     ],
 };
 

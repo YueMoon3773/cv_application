@@ -12,21 +12,21 @@ const CardTextArea = ({
     data,
     setData,
 }) => {
-    const {
-        font,
-        firstName,
-        lastName,
-        jobTitle,
-        profile,
-        phone,
-        email,
-        website,
-        github,
-        location,
-        experiences,
-        educations,
-        ...additionalInfoItems
-    } = data;
+    // const {
+    //     font,
+    //     firstName,
+    //     lastName,
+    //     jobTitle,
+    //     profile,
+    //     phone,
+    //     email,
+    //     website,
+    //     github,
+    //     location,
+    //     experiences,
+    //     educations,
+    //     ...additionalInfoItems
+    // } = data;
     let valToDisplay = '';
 
     const handleInpValue = () => {

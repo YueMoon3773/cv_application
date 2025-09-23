@@ -6,10 +6,9 @@ const CardInput = ({
     labelContent = '',
     inpType = 'text',
     inpPlaceholder = '',
-    // inpValue = '',
     isInpRequired = false,
     isOnTwoCol = false,
-    // customOnChange = null,
+    indexOfLargeItem = null,
     dataToChange,
     indexOfDataToChange = null,
     data,
@@ -35,11 +34,14 @@ const CardInput = ({
 
     const handleInpValue = () => {
         // console.log(dataToChange);
-        if (Object.hasOwn(additionalInfoItems, dataToChange) && labelContent === 'Section title') {
-            // for displaying the key of data like: 'languages', 'skills', 'strengths', 'Extra details'
-            // console.log(6);
-
-            valToDisplay = String(dataToChange).charAt(0).toUpperCase() + String(dataToChange).slice(1);
+        if (dataToChange === 'title' && labelContent === 'Section title') {
+            // for displaying the key of data like: 'languages', 'skills', 'strengths', 'Extra details' in more
+            // console.log(1);
+            valToDisplay = data.more[indexOfDataToChange].title;
+        } else if (dataToChange === 'details' && inpPlaceholder === 'Your key point') {
+            // for displaying the key value of data like: 'languages', 'skills', 'strengths', 'Extra details' in more
+            // console.log(2);
+            valToDisplay = data.more[indexOfLargeItem].details[indexOfDataToChange];
         } else if (
             !Array.isArray(data[dataToChange]) &&
             dataToChange !== 'school' &&
@@ -56,12 +58,8 @@ const CardInput = ({
             !Object.hasOwn(additionalInfoItems, dataToChange)
         ) {
             //for normal key like firstName, lastName, jobTitle
-            // console.log(1);
+            // console.log(3);
             valToDisplay = data[dataToChange];
-        } else if (Array.isArray(data[dataToChange])) {
-            // for key value which is in Array like skills, languages, strengths, more
-            // console.log(2);
-            valToDisplay = data[dataToChange][indexOfDataToChange];
         } else if (
             dataToChange === 'school' ||
             dataToChange === 'course' ||
@@ -70,7 +68,7 @@ const CardInput = ({
             dataToChange === 'eduDescription'
         ) {
             // for educations data
-            // console.log(3);
+            // console.log(4);
             valToDisplay = data.educations[indexOfDataToChange][dataToChange];
         } else if (
             dataToChange === 'company' ||
@@ -81,7 +79,7 @@ const CardInput = ({
             dataToChange === 'expDescription'
         ) {
             // for experiences data
-            // console.log(4);
+            // console.log(5);
             valToDisplay = data.experiences[indexOfDataToChange][dataToChange];
         }
     };
@@ -89,17 +87,22 @@ const CardInput = ({
 
     const handleInputChange = (inpValue) => {
         // console.log(dataToChange);
-        if (Object.hasOwn(additionalInfoItems, dataToChange) && labelContent === 'Section title') {
-            // for changing the key of data like: 'languages', 'skills', 'strengths', 'Extra details'
-            console.log('inp branch 1');
-            // console.log(6);
+        if (dataToChange === 'title' && labelContent === 'Section title') {
+            // for displaying the key of data like: 'languages', 'skills', 'strengths', 'Extra details' in more
+            // console.log('inp branch 1');
 
             setData((prev) => {
-                return Object.fromEntries(
-                    Object.entries(prev).map(([key, val]) => {
-                        return key === dataToChange ? [inpValue, val] : [key, val];
+                return {
+                    ...prev,
+                    more: prev.more.map((item, index) => {
+                        if (index === indexOfDataToChange) {
+                            return {
+                                ...item,
+                                title: inpValue,
+                            };
+                        } else return item;
                     }),
-                );
+                };
             });
         } else if (
             !Array.isArray(data[dataToChange]) &&
@@ -116,22 +119,29 @@ const CardInput = ({
             dataToChange !== 'expDescription' &&
             !Object.hasOwn(additionalInfoItems, dataToChange)
         ) {
-            //for changing normal key's value like firstName, lastName, jobTitl
-            console.log('inp branch 2');
+            //for changing normal key's value like firstName, lastName, jobTitle
+            // console.log('inp branch 2');
 
             setData((prev) => ({
                 ...prev,
                 [dataToChange]: inpValue,
             }));
-        } else if (Array.isArray(data[dataToChange])) {
-            // for changing normal key's value which is in Array like skills, languages, strengths, more
-            console.log('inp branch 3');
+        } else if (dataToChange === 'details' && inpPlaceholder === 'Your key point') {
+            // for displaying the key value of data like: 'languages', 'skills', 'strengths', 'Extra details' in more
+            // console.log('inp branch 3');
             setData((prev) => ({
                 ...prev,
-                [dataToChange]: prev[dataToChange].map((item, index) => {
-                    if (index === indexOfDataToChange) {
-                        return inpValue;
-                    } else return item;
+                more: prev.more.map((moreItem, moreIndex) => {
+                    if (moreIndex === indexOfLargeItem) {
+                        return {
+                            ...moreItem,
+                            details: moreItem.details.map((detailItem, detailIndex) => {
+                                if (detailIndex === indexOfDataToChange) {
+                                    return inpValue;
+                                } else return detailItem;
+                            }),
+                        };
+                    } else return moreItem;
                 }),
             }));
         }
@@ -143,9 +153,8 @@ const CardInput = ({
             dataToChange === 'eduEndDate' ||
             dataToChange === 'eduDescription'
         ) {
-            console.log('inp branch 4');
             // for educations data value
-            // data.educations[indexOfDataToChange][dataToChange];
+            // console.log('inp branch 4');
             setData((prev) => ({
                 ...prev,
                 educations: prev.educations.map((item, index) => {
@@ -165,9 +174,8 @@ const CardInput = ({
             dataToChange === 'projectTitle' ||
             dataToChange === 'expDescription'
         ) {
-            console.log('inp branch 5');
             // for experiences data value
-            // data.experiences[indexOfDataToChange][dataToChange];
+            // console.log('inp branch 5');
             setData((prev) => ({
                 ...prev,
                 experiences: prev.experiences.map((item, index) => {

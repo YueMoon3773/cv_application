@@ -5,7 +5,7 @@ import DeleteButton from '../../deleteButton/deleteButton';
 
 import './smallItemKeyPoint.scss';
 
-const SmallItemKeyPoint = ({ keyPointIndex, keyPointDataToChange, data, setData }) => {
+const SmallItemKeyPoint = ({ indexOfLargeItem = null, keyPointIndex, keyPointDataToChange, data, setData }) => {
     const [hideDeleteFullBtn, setHideDeleteFullBtn] = useState(true);
 
     return (
@@ -19,6 +19,7 @@ const SmallItemKeyPoint = ({ keyPointIndex, keyPointDataToChange, data, setData 
                 setData={setData}
                 dataToChange={keyPointDataToChange}
                 indexOfDataToChange={keyPointIndex}
+                indexOfLargeItem={indexOfLargeItem}
             />
             <DeleteButton />
         </div>
