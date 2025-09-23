@@ -16,11 +16,6 @@ function App() {
     const [sampleData, setSampleData] = useState(databaseSampleData);
     // const [resumeFont, setResumeFont] = useState('Ledger');
 
-    // const [isSampleData, setIsSampleData] = useState(true);
-    // const [isSampleData, setIsSampleData] = useState(false);
-
-    const [activeSampleId, setActiveSampleId] = useState(1);
-
     console.log(data);
 
     return (

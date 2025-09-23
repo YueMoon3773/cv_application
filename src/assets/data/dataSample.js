@@ -104,6 +104,14 @@ const sampleData1 = {
             ],
         },
         {
+            title: 'certificates',
+            details: [
+                'Level 3 Certified Laugh-Energy Consultant',
+                'Monstropolis Safety Council: Child-Safety First Responder',
+                'Advanced Public Speaking & Comedy Workshop',
+            ],
+        },
+        {
             title: 'skills',
             details: [
                 'Leadership',
@@ -124,14 +132,6 @@ const sampleData1 = {
                 'Employee of the Month (Nov 2001)',
                 'Co-founder of the Laugh Energy Revolution',
                 'Big fan of comedy shows and stand-up humor',
-            ],
-        },
-        {
-            title: 'certificates',
-            details: [
-                'Level 3 Certified Laugh-Energy Consultant',
-                'Monstropolis Safety Council: Child-Safety First Responder',
-                'Advanced Public Speaking & Comedy Workshop',
             ],
         },
     ],
@@ -238,6 +238,14 @@ const sampleData2 = {
             ],
         },
         {
+            title: 'certificates',
+            details: [
+                'Certified Laughter-Energy Technician',
+                'Monstropolis Safety Council: Child-Safety First Responder',
+                'Top Scarer Achievement Award (2002-2012)',
+            ],
+        },
+        {
             title: 'skills',
             details: [
                 'Leadership',
@@ -257,14 +265,6 @@ const sampleData2 = {
                 'Former Monsters, Inc. record-holding scarer',
                 'CEO who pioneered laugh energy revolution',
                 'Lifetime best friend and partner to Mike Wazowski',
-            ],
-        },
-        {
-            title: 'certificates',
-            details: [
-                'Certified Laughter-Energy Technician',
-                'Monstropolis Safety Council: Child-Safety First Responder',
-                'Top Scarer Achievement Award (2002-2012)',
             ],
         },
     ],

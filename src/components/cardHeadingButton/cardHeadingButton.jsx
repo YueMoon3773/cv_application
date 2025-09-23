@@ -17,10 +17,17 @@ import {
 
 import './cardHeadingButton.scss';
 
-const CardHeadingButton = ({ btnContent, isMainHeadingButton = true, isMainBtnExpanded, handleExpand }) => {
+const CardHeadingButton = ({
+    btnContent,
+    isMainHeadingButton = true,
+    isMainBtnExpanded,
+    handleExpand,
+    itemToDeleteType = '',
+    indexOfItemToDelete = null,
+    data = null,
+    setData = null,
+}) => {
     let btnIcon = null;
-    // const [isMainBtnExpanded, setIsMainBtnExpanded] = useState(false);
-
     switch (btnContent) {
         case 'Personal Information':
             btnIcon = <PersonalInfoIcon />;
@@ -69,6 +76,37 @@ const CardHeadingButton = ({ btnContent, isMainHeadingButton = true, isMainBtnEx
             break;
     }
 
+    const deleteItemBtnHandler = () => {
+        if (itemToDeleteType === 'educations') {
+            // console.log('delete education item');
+
+            setData((prev) => {
+                return {
+                    ...prev,
+                    educations: prev.educations.filter((value, index) => index !== indexOfItemToDelete),
+                };
+            });
+        } else if (itemToDeleteType === 'experiences') {
+            // console.log('delete experience item');
+
+            setData((prev) => {
+                return {
+                    ...prev,
+                    experiences: prev.experiences.filter((value, index) => index !== indexOfItemToDelete),
+                };
+            });
+        } else if (itemToDeleteType === 'more') {
+            // console.log('delete more item');
+
+            setData((prev) => {
+                return {
+                    ...prev,
+                    more: prev.more.filter((value, index) => index !== indexOfItemToDelete),
+                };
+            });
+        }
+    };
+
     return (
         <>
             {isMainHeadingButton === true ? (
@@ -99,7 +137,7 @@ const CardHeadingButton = ({ btnContent, isMainHeadingButton = true, isMainBtnEx
                         <ArrowIcon />
                     </button>
 
-                    <DeleteButton />
+                    <DeleteButton handleDeleteOnClick={deleteItemBtnHandler} />
                 </div>
             )}
         </>

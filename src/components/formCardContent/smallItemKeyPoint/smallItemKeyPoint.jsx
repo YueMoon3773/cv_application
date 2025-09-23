@@ -6,7 +6,23 @@ import DeleteButton from '../../deleteButton/deleteButton';
 import './smallItemKeyPoint.scss';
 
 const SmallItemKeyPoint = ({ indexOfLargeItem = null, keyPointIndex, keyPointDataToChange, data, setData }) => {
-    const [hideDeleteFullBtn, setHideDeleteFullBtn] = useState(true);
+    const deleteSmallKeyPointBtnHandler = () => {
+        setData((prev) => {
+            return {
+                ...prev,
+                more: prev.more.map((moreItem, moreIndex) => {
+                    if (moreIndex === indexOfLargeItem) {
+                        return {
+                            ...moreItem,
+                            details: moreItem.details.filter((detailsVal, detailsINdex) => {
+                                return detailsINdex !== keyPointIndex;
+                            }),
+                        };
+                    } else return moreItem;
+                }),
+            };
+        });
+    };
 
     return (
         <div className="additionalInfoItemKeyPoint">
@@ -21,7 +37,7 @@ const SmallItemKeyPoint = ({ indexOfLargeItem = null, keyPointIndex, keyPointDat
                 indexOfDataToChange={keyPointIndex}
                 indexOfLargeItem={indexOfLargeItem}
             />
-            <DeleteButton />
+            <DeleteButton handleDeleteOnClick={deleteSmallKeyPointBtnHandler} />
         </div>
     );
 };

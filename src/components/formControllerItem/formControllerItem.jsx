@@ -29,7 +29,7 @@ const FormControllerItem = ({ itemHeading = '', data, setData, sampleData, setSa
                         />
                     </>
                 )}
-                {itemHeading === 'Custom styling' && (
+                {itemHeading === 'Font styling' && (
                     <>
                         <ControllerBtn
                             btnContent="Ledger"

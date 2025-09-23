@@ -14,21 +14,6 @@ const CardInput = ({
     data,
     setData,
 }) => {
-    const {
-        font,
-        firstName,
-        lastName,
-        jobTitle,
-        profile,
-        phone,
-        email,
-        website,
-        github,
-        location,
-        experiences,
-        educations,
-        ...additionalInfoItems
-    } = data;
     let valToDisplay = '';
     // let usrDataKey = '';
 
@@ -55,7 +40,8 @@ const CardInput = ({
             dataToChange !== 'expEndDate' &&
             dataToChange !== 'projectTitle' &&
             dataToChange !== 'expDescription' &&
-            !Object.hasOwn(additionalInfoItems, dataToChange)
+            dataToChange !== 'details' &&
+            dataToChange !== 'title'
         ) {
             //for normal key like firstName, lastName, jobTitle
             // console.log(3);
@@ -104,31 +90,10 @@ const CardInput = ({
                     }),
                 };
             });
-        } else if (
-            !Array.isArray(data[dataToChange]) &&
-            dataToChange !== 'school' &&
-            dataToChange !== 'course' &&
-            dataToChange !== 'eduStartDate' &&
-            dataToChange !== 'eduEndDate' &&
-            dataToChange !== 'eduDescription' &&
-            dataToChange !== 'company' &&
-            dataToChange !== 'position' &&
-            dataToChange !== 'expStartDate' &&
-            dataToChange !== 'expEndDate' &&
-            dataToChange !== 'projectTitle' &&
-            dataToChange !== 'expDescription' &&
-            !Object.hasOwn(additionalInfoItems, dataToChange)
-        ) {
-            //for changing normal key's value like firstName, lastName, jobTitle
-            // console.log('inp branch 2');
-
-            setData((prev) => ({
-                ...prev,
-                [dataToChange]: inpValue,
-            }));
         } else if (dataToChange === 'details' && inpPlaceholder === 'Your key point') {
             // for displaying the key value of data like: 'languages', 'skills', 'strengths', 'Extra details' in more
             // console.log('inp branch 3');
+            
             setData((prev) => ({
                 ...prev,
                 more: prev.more.map((moreItem, moreIndex) => {
@@ -143,6 +108,29 @@ const CardInput = ({
                         };
                     } else return moreItem;
                 }),
+            }));
+        } else if (
+            !Array.isArray(data[dataToChange]) &&
+            dataToChange !== 'school' &&
+            dataToChange !== 'course' &&
+            dataToChange !== 'eduStartDate' &&
+            dataToChange !== 'eduEndDate' &&
+            dataToChange !== 'eduDescription' &&
+            dataToChange !== 'company' &&
+            dataToChange !== 'position' &&
+            dataToChange !== 'expStartDate' &&
+            dataToChange !== 'expEndDate' &&
+            dataToChange !== 'projectTitle' &&
+            dataToChange !== 'expDescription' &&
+            dataToChange !== 'details' &&
+            dataToChange !== 'title'
+        ) {
+            //for changing normal key's value like firstName, lastName, jobTitle
+            // console.log('inp branch 2');
+
+            setData((prev) => ({
+                ...prev,
+                [dataToChange]: inpValue,
             }));
         }
 

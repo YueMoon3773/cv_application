@@ -16,7 +16,7 @@ const FormController = ({ isExpanded = false, data, setData, sampleData, setSamp
                     setSampleData={setSampleData}
                 />
                 <FormControllerItem
-                    itemHeading={'Custom styling'}
+                    itemHeading={'Font styling'}
                     data={data}
                     setData={setData}
                     sampleData={sampleData}

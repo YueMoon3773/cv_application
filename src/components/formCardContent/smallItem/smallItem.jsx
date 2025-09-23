@@ -11,30 +11,23 @@ const SmallItem = ({ smallItemHeading = '', smallItemVal = null, smallItemIndex,
     const [isExpanded, setIsExpanded] = useState(false);
     const handleExpand = () => setIsExpanded(!isExpanded);
 
-    let itemHeading = String(smallItemHeading).charAt(0).toUpperCase() + String(smallItemHeading).slice(1);
-    // switch (smallItemHeading) {
-    //     case 'skills':
-    //         itemHeading = 'Skills';
-    //         break;
-    //     case 'languages':
-    //         itemHeading = 'Languages';
-    //         break;
-    //     case 'strengths':
-    //         itemHeading = 'Strengths';
-    //         break;
-    //     case 'more':
-    //         itemHeading = 'Extra Details';
-    //         break;
-    //     default:
-    //         itemHeading = String(smallItemHeading).charAt(0).toUpperCase() + String(smallItemHeading).slice(1);
-    //         break;
-    // }
+    let itemHeading =
+        smallItemHeading !== ''
+            ? String(smallItemHeading).charAt(0).toUpperCase() + String(smallItemHeading).slice(1)
+            : 'Section title';
 
     const addSmallKeyPointBtnHandler = () => {
         setData((prev) => {
             return {
                 ...prev,
-                '': [''],
+                more: prev.more.map((moreItem, moreIndex) => {
+                    if (moreIndex === smallItemIndex) {
+                        return {
+                            ...moreItem,
+                            details: [...moreItem.details, ''],
+                        };
+                    } else return moreItem;
+                }),
             };
         });
     };
@@ -46,6 +39,10 @@ const SmallItem = ({ smallItemHeading = '', smallItemVal = null, smallItemIndex,
                 isMainBtnExpanded={isExpanded}
                 isMainHeadingButton={false}
                 handleExpand={handleExpand}
+                itemToDeleteType="more"
+                indexOfItemToDelete={smallItemIndex}
+                data={data}
+                setData={setData}
             />
             <div className={`itemContent ${isExpanded === true ? 'expanded' : ''}`}>
                 <div className="additionalInfoItem">

@@ -3,7 +3,6 @@ import { useState } from 'react';
 import CardHeadingButton from '../../cardHeadingButton/cardHeadingButton';
 import CardInput from '../../cardInput/cardInput';
 import LargeItemKeyPoint from '../largeItemKeyPoint/largeItemKeyPoint';
-import CardTextArea from '../../cardTextArea/cardTextArea';
 import AddBtn from '../../addButton/addButton';
 
 import './largeItem.scss';
@@ -75,6 +74,10 @@ const LargeItem = ({ largeItemType = '', indexOfDataToChange = null, data, setDa
                 isMainBtnExpanded={isExpanded}
                 isMainHeadingButton={false}
                 handleExpand={handleExpand}
+                itemToDeleteType={largeItemType}
+                indexOfItemToDelete={indexOfDataToChange}
+                data={data}
+                setData={setData}
             />
             <div className={`itemContent ${isExpanded === true ? 'expanded' : ''}`}>
                 <div className="educationAndExperiencesItem">
