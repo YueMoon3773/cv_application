@@ -1,18 +1,21 @@
 import { useState } from 'react';
+import { createRoot } from 'react-dom/client';
+
+import MinimalismResume from '../resumeContent/minimalismResume/minimalismResume';
+import ClassicResume from '../resumeContent/classicResume/classicResume';
+import ModernResume from '../resumeContent/modernResume/modernResume';
 
 import './resumeDisplay.scss';
 
-const ResumeDisplay = () => {
+const ResumeDisplay = ({ data }) => {
     return (
         <div className="sideWrapper">
             <div className="resumeDisplay">
-                <div className="resume">h1</div>
-                <div className="displayController"></div>
-            </div>
-            <div id="measureBox">
+                <h4 className="displayText">Resume preview</h4>
                 <div className="resume">
-                    <div className="column left"></div>
-                    <div className="column right"></div>
+                    {data.style === 'Minimalism' && <MinimalismResume data={data} />}
+                    {data.style === 'Classic' && <ClassicResume data={data} />}
+                    {data.style === 'Modern' && <ModernResume data={data} />}
                 </div>
             </div>
         </div>

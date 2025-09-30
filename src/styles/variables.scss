@@ -32,9 +32,7 @@ $primary_darkest_color: #185375;
 
 $active_style_btn: #ffa52f;
 
-$cv_primary_color: #d1e9f0;
-$cv_heading_color: #225d81;
-$cv_sub_heading_color: #2b74a1;
+$app_primary_filter_shadow: drop-shadow(0 3px 6px rgba(#000, $alpha: 0.36));
 
 // FONT SIZES
 $fs_heading_xl: clamp(4rem, 2.6vw + 4rem, 5.6rem);
@@ -46,19 +44,26 @@ $fs_normal_xl: clamp(1.9rem, 1.4vw + 1.8rem, 2.4rem);
 $fs_normal_lg: clamp(1.6rem, 1vw + 1.7rem, 1.86rem);
 $fs_normal_md: clamp(1.36rem, 0.6vw + 1.3rem, 1.4rem);
 $fs_normal_sm: clamp(1.16rem, 0.3vw + 1.16rem, 1.26rem);
+$fs_normal_ssm: clamp(0.76rem, 0.1vw + 0.8rem, 0.86rem);
+$fs_normal_sssm: clamp(0.66rem, 0.1vw + 0.7rem, 0.76rem);
 
 // VARIABLES SET UP
 $side_btns_position: clamp(6px, 0.8em, 10px);
 
-$scroll_bar_width: clamp(4.6px, 0.56em, 6.6px);
+$scroll_bar_width: clamp(2.6px, 0.3em, 3.6px);
 $scroll_bar_border_radius: clamp(8px, 0.86em, 10px);
 
-$padding_xxxl: 24px;
-$padding_xxl: 20px;
-$padding_xl: 16px;
-$padding_lg: 12px;
-$padding_md: 8px;
-$padding_sm: 6px;
+$distance_xxxl: 24px;
+$distance_xxl: 20px;
+$distance_xl: 16px;
+$distance_lg: 12px;
+$distance_md: 8px;
+$distance_sm: 6px;
+$distance_ssm: 4px;
+
+$form_header_margin: clamp(46px, 4.66em, 50px) 0 clamp(20px, 2em, 26px);
+$form_card_section_gap: clamp(20px, 2.2em, 24px);
+$form_margin_bottom: clamp(46px, 4.6em, 50px);
 
 $form_heading_btn_padding: clamp(12px, 1.26em, 14px) clamp(4px, 5.6em, 6px) clamp(12px, 1.26em, 14px)
     clamp(14px, 1.56em, 16px);
@@ -77,12 +82,65 @@ $form_delete_btn_ratio: 1 / 0.65;
 
 $inpBorderWidth: 2.6px;
 
+/* =============================================== */
+// RESUME VARIABLES
+/* =============================================== */
+$resume_heading_position: clamp(16px, 1.8rem, 20px) auto clamp(6px, 0.8rem, 10px);
 $resume_preview_max_height: min(90vh, 297mm);
 $resume_ratio: 210 / 297;
+$resume_padding: clamp(32px, 3.2em, 36px);
+
+$resume_fs_heading_xxl: 2.4em;
+$resume_fs_heading_lg: 1.8em;
+$resume_fs_heading_md: 1.6em;
+$resume_fs_heading_sm: 1.2em;
+$resume_fs_heading_ssm: 1.1em;
+$resume_fs_heading_sssm: 1em;
+
+$resume_fs_normal_xl: 0.9em;
+$resume_fs_normal_lg: 0.8em;
+$resume_fs_normal_md: 0.76em;
+$resume_fs_normal_sm: 0.66em;
+$resume_fs_normal_ssm: 0.6em;
+$resume_fs_normal_sssm: 0.56em;
+
+$resume_distance_xxxl: 1em;
+$resume_distance_xxl: 0.8em;
+$resume_distance_xl: 0.6em;
+$resume_distance_lg: 0.5em;
+$resume_distance_md: 0.4em;
+$resume_distance_sm: 0.2em;
+$resume_distance_ssm: 0.1em;
+$resume_distance_sssm: 0.06em;
+
+$minimalism_resume_divided_line_height: 1.5px;
 
 /* =============================================== */
 /* FUNCTIONS SETUP  */
 /* =============================================== */
+@mixin fonts {
+    &.Ledger {
+        font-family: 'Ledger';
+        line-height: 1.5;
+    }
+    &.Roboto {
+        font-family: 'Roboto Mono';
+        // letter-spacing: -0.026em;
+        line-height: 1.36;
+    }
+    &.Sono {
+        font-family: 'Sono';
+        // letter-spacing: -0.036em;
+        line-height: 1.36;
+    }
+    &.AR_One_Sans {
+        font-family: 'AR One Sans';
+    }
+    &.Helvetica {
+        font-family: Helvetica;
+    }
+}
+
 @mixin flexCenter {
     display: flex;
     justify-content: center;

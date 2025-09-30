@@ -12,21 +12,6 @@ const CardTextArea = ({
     data,
     setData,
 }) => {
-    // const {
-    //     font,
-    //     firstName,
-    //     lastName,
-    //     jobTitle,
-    //     profile,
-    //     phone,
-    //     email,
-    //     website,
-    //     github,
-    //     location,
-    //     experiences,
-    //     educations,
-    //     ...additionalInfoItems
-    // } = data;
     let valToDisplay = '';
 
     const handleInpValue = () => {
@@ -79,8 +64,7 @@ const CardTextArea = ({
                     }),
                 };
             });
-        }
-        else{
+        } else {
             setData((prev) => ({ ...prev, [dataToChange]: inpValue }));
         }
     };
@@ -93,7 +77,7 @@ const CardTextArea = ({
                 className="textArea"
                 value={valToDisplay}
                 onChange={(e) => {
-                    handleInputChange(e.target.value.trim());
+                    handleInputChange(e.target.value.trimStart());
                 }}
             ></textarea>
             <label className="textAreaLabel">{labelContent}</label>

@@ -1,5 +1,7 @@
 const dataStructure = {
     font: 'Ledger',
+    style: 'Minimalism',
+    color: '#3081b0',
     firstName: '',
     lastName: '',
     jobTitle: '',

@@ -26,6 +26,7 @@
 
     &:has(span) {
         width: max(100px, 120px);
+        height: 82px;
         @include flexColumn;
         font-size: $fs_normal_lg;
 
@@ -52,6 +53,20 @@
 
             span {
                 font-family: 'Sono';
+            }
+        }
+        &.AR_One_Sans {
+            font-family: 'AR One Sans';
+
+            span {
+                font-family: 'AR One Sans';
+            }
+        }
+        &.Helvetica {
+            font-family: Helvetica;
+
+            span {
+                font-family: Helvetica;
             }
         }
     }

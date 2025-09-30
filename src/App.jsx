@@ -12,9 +12,9 @@ import './App.scss';
 function App() {
     // const [data, setData] = useState(dataStructure);
     const [data, setData] = useState(databaseSampleData.sampleData1);
+    // const [data, setData] = useState(databaseSampleData.testData);
 
     const [sampleData, setSampleData] = useState(databaseSampleData);
-    // const [resumeFont, setResumeFont] = useState('Ledger');
 
     console.log(data);
 
@@ -22,7 +22,7 @@ function App() {
         <div className="app">
             <SideControllers />
             <FormWrapper data={data} setData={setData} sampleData={sampleData} setSampleData={setSampleData} />
-            <ResumeDisplay />
+            <ResumeDisplay data={data} />
         </div>
     );
 }

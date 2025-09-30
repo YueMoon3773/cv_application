@@ -1,0 +1,161 @@
+.modernResumeWrapper {
+    @include flexColumn;
+    align-items: stretch;
+    font-size: inherit;
+}
+
+.modernHeadingWrapper {
+    @include flexColumn;
+    flex-wrap: wrap;
+    width: 100%;
+    font-size: inherit;
+    padding: $resume_padding;
+
+    background-color: var(--user_lightest_color);
+}
+
+.modernHeading {
+    font-size: $resume_fs_heading_xxl;
+    color: $black_text;
+    @include fonts;
+}
+
+.modernSubHeading {
+    @include fonts;
+    font-size: $resume_fs_heading_ssm;
+}
+
+.modernContactWrapper {
+    width: 100%;
+    @include flexCenter;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    font-size: inherit;
+    gap: $resume_distance_md;
+    padding: calc($resume_padding * 50 / 100) calc($resume_padding * 60 / 100);
+
+    background-color: var(--user_lighter_color);
+
+    & .mainInfoText {
+        @include flexCenter;
+        font-size: $resume_fs_normal_md;
+        font-weight: 560;
+        @include fonts;
+
+        & > svg {
+            height: $resume_fs_heading_sm;
+            margin-right: 0.06em;
+            aspect-ratio: 1 / 1;
+            color: var(--user_darkest_color);
+        }
+    }
+}
+
+.modernContent {
+    // margin-top: $resume_padding;
+    padding: $resume_padding;
+    width: 100%;
+    @include displayGrid;
+    font-size: inherit;
+
+    grid-template-columns: 1fr;
+
+    &:has(> .leftSideContent) {
+        grid-template-columns: 1.2fr 2.5fr;
+        // gap: $resume_distance_lg;
+    }
+}
+
+.leftSideContent,
+.rightSideContent {
+    justify-self: stretch;
+    align-self: stretch;
+    @include flexColumn;
+    align-items: flex-start;
+    font-size: inherit;
+
+    & > .modernSection:not(:first-child) {
+        margin-top: $resume_distance_xxxl;
+    }
+}
+
+.leftSideContent {
+    position: relative;
+    padding-right: $resume_distance_xxl;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: $minimalism_resume_divided_line_height;
+        height: 100%;
+        background-color: var(--user_darker_color);
+        // opacity: 0.36;
+    }
+}
+
+.rightSideContent {
+    padding-left: $resume_distance_xxl;
+}
+
+.modernSection {
+    @include flexColumn;
+    align-items: flex-start;
+    font-size: inherit;
+}
+
+.sectionHeading {
+    font-size: $resume_fs_normal_lg;
+    color: $black_text;
+    @include fonts;
+    margin-bottom: $resume_distance_sm;
+    text-transform: uppercase;
+}
+
+.sectionContent {
+    @include flexColumn;
+    align-items: flex-start;
+    font-size: inherit;
+    width: 100%;
+    gap: $resume_distance_md;
+
+    & > * > * > .contentItem {
+        // text-align: left;
+    }
+}
+
+.sectionText {
+    @include flexCenter;
+    font-size: $resume_fs_normal_sm;
+    @include fonts;
+    color: $black_text;
+    font-weight: 400;
+
+    & > svg {
+        height: $resume_fs_heading_md;
+        margin-right: 0.6em;
+        aspect-ratio: 1 / 1;
+        color: $black_text;
+    }
+}
+
+.moreContentList {
+    font-size: inherit;
+}
+
+.moreContentItem {
+    text-align: left;
+}
+
+.profileText {
+    text-align: justify;
+}
+
+.educationsAndExperiencesContent {
+    @include flexColumn;
+    align-items: stretch;
+    font-size: inherit;
+    width: 100%;
+    gap: $resume_distance_xxl;
+}

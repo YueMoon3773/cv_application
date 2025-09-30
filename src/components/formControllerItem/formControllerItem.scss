@@ -1,6 +1,6 @@
 .formControllerItem {
     border: 1px solid $primary_color;
-    border-radius: $padding_sm;
+    border-radius: $distance_sm;
     position: relative;
 }
 
@@ -20,6 +20,35 @@
     @include flexCenter;
     align-items: stretch;
     justify-content: space-around;
-    margin-top: $padding_lg;
-    padding: $padding_xxl;
+    margin-top: $distance_lg;
+    padding: $distance_xxl;
+
+    &:has(.first) {
+        @include flexColumn;
+        gap: $form_card_content_row_gap;
+    }
+
+    & .first,
+    & .second {
+        width: 100%;
+        @include flexCenter;
+        justify-content: space-between;
+    }
+
+    & .second {
+        justify-content: space-evenly;
+    }
+}
+
+.colorControllerLabel {
+    @include flexCenter;
+    gap: $form_card_content_column_gap;
+    font-size: $fs_normal_lg;
+    font-weight: 700;
+    color: $black_text;
+    cursor: default;
+}
+
+.colorInpController {
+    cursor: pointer;
 }

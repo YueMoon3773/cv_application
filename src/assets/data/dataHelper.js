@@ -21,6 +21,7 @@ const moreStructure = {
 };
 
 const fontsList = ['Ledger', 'Roboto', 'Sono'];
+const stylesList = ['minimalism', 'modern', 'classic'];
 
 export const getExperiencesStructure = () => experiencesStructure;
 export const getEducationStructure = () => educationStructure;

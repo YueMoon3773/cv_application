@@ -1,5 +1,7 @@
 const sampleData1 = {
     font: 'Ledger',
+    style: 'Modern',
+    color: '#3081b0',
     firstName: 'Mike',
     lastName: 'Wazowski',
     jobTitle: 'Senior Scarer & Co-President of Monsters, Inc.',
@@ -138,6 +140,8 @@ const sampleData1 = {
 };
 const sampleData2 = {
     font: 'Ledger',
+    style: 'Minimalism',
+    color: '#3081b0',
     firstName: 'James P.',
     lastName: 'Sullivan',
     jobTitle: 'Senior Scarer & Co-President of Monsters, Inc.',

@@ -1,0 +1,124 @@
+.minimalismResumeWrapper {
+    @include flexColumn;
+    font-size: inherit;
+
+    & > * {
+        width: 100%;
+    }
+}
+
+.miniResumeHeading,
+.miniResumeSubHeading {
+    font-size: $resume_fs_heading_xxl;
+    text-align: center;
+    color: $black_text;
+    @include fonts;
+}
+
+.miniResumeSubHeading {
+    font-size: $resume_fs_heading_ssm;
+    @include fonts;
+}
+
+.miniResumeMainInfo {
+    width: 100%;
+    @include flexCenter;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    font-size: inherit;
+    gap: $resume_distance_xxl;
+    margin-top: $resume_distance_xl;
+}
+
+.mainInfoText {
+    @include flexCenter;
+    font-size: $resume_fs_normal_sm;
+    @include fonts;
+
+    & > svg {
+        height: $resume_fs_heading_sm;
+        margin-right: 0.26em;
+        aspect-ratio: 1 / 1;
+    }
+}
+
+.miniResumeSection {
+    @include flexColumn;
+    font-size: inherit;
+    margin-top: $resume_distance_xl;
+    gap: $resume_distance_md;
+    align-items: flex-start;
+
+    &::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: $minimalism_resume_divided_line_height;
+        background-color: var(--user_lighter_color);
+        opacity: 0.36;
+        margin-bottom: $resume_distance_sm;
+    }
+}
+
+.miniResumeProfile {
+    font-size: $resume_fs_heading_ssm;
+}
+
+.miniResumeSectionHeading {
+    font-size: $resume_fs_normal_lg;
+    @include fonts;
+    font-weight: 700;
+    color: $black_text;
+    text-transform: uppercase;
+    letter-spacing: 1.66px;
+}
+
+.miniResumeProfileText {
+    font-size: $resume_fs_normal_sm;
+    @include fonts;
+    color: $black_text;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: justify;
+}
+
+.profileWebsites {
+    @include flexCenter;
+    flex-wrap: wrap;
+    font-size: inherit;
+    gap: $resume_distance_xxxl;
+
+    & > * > svg {
+        height: $resume_fs_heading_sm;
+    }
+}
+
+.educationsAndExperiencesContent {
+    @include flexColumn;
+    font-size: inherit;
+    gap: $resume_distance_xxxl;
+}
+
+.moreContentWrapper {
+    width: 100%;
+    font-size: inherit;
+}
+
+.moreContentList {
+    font-size: inherit;
+    list-style-type: disc;
+}
+
+.moreContentItem {
+    font-size: $resume_fs_normal_ssm;
+    @include fonts;
+    font-weight: 400;
+    text-align: justify;
+    list-style-type: disc;
+    list-style-position: inside;
+    white-space: pre-wrap;
+
+    &.empty {
+        list-style-type: ' ';
+    }
+}

@@ -15,13 +15,8 @@ const FormController = ({ isExpanded = false, data, setData, sampleData, setSamp
                     sampleData={sampleData}
                     setSampleData={setSampleData}
                 />
-                <FormControllerItem
-                    itemHeading={'Font styling'}
-                    data={data}
-                    setData={setData}
-                    sampleData={sampleData}
-                    setSampleData={setSampleData}
-                />
+                <FormControllerItem itemHeading={'Font styling'} data={data} setData={setData} />
+                <FormControllerItem itemHeading={'Resume styling'} data={data} setData={setData} />
             </div>
         </div>
     );

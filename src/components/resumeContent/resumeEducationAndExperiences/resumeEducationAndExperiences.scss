@@ -1,0 +1,55 @@
+.resumeEducationAndExperiencesWrapper {
+    width: 100%;
+    @include flexColumn;
+    // font-size: $resume_fs_heading_sm;
+    font-size: inherit;
+    gap: $resume_distance_sm;
+}
+
+.firstRow,
+.secondRow,
+.thirdRow {
+    width: 100%;
+    @include flexCenter;
+    justify-content: space-between;
+    font-size: inherit;
+    align-self: flex-start;
+    @include fonts;
+
+    & > h2 {
+        font-size: $resume_fs_normal_sm;
+        @include fonts;
+        color: $black_text;
+        font-weight: 700;
+
+        &:nth-child(2) {
+            text-align: right;
+        }
+    }
+}
+
+.thirdRow {
+    & > h2 {
+        font-weight: 600;
+        @include fonts;
+    }
+}
+
+.educationAndExperiencesContentList {
+    font-size: inherit;
+    list-style-type: disc;
+
+    & > li {
+        font-size: $resume_fs_normal_sm;
+        @include fonts;
+        font-weight: 400;
+        text-align: justify;
+        list-style-type: disc;
+        list-style-position: inside;
+        white-space: pre-wrap;
+
+        &.empty {
+            list-style-type: ' ';
+        }
+    }
+}

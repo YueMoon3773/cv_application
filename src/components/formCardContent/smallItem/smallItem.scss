@@ -1,7 +1,7 @@
 .smallItem {
     width: 100%;
     border: 1px solid $primary_dark_color;
-    border-radius: $padding_sm;
+    border-radius: $distance_sm;
 }
 
 .itemContent {
@@ -26,8 +26,8 @@
         align-items: stretch;
         gap: $form_card_content_row_gap;
         margin-top: clamp(10px, 1.2em, 14px);
-        padding: $padding_md;
-        padding-bottom: $padding_xl;
+        padding: $distance_md;
+        padding-bottom: $distance_xl;
 
         & > *:last-child {
             align-self: flex-end;

@@ -4,7 +4,11 @@ import ControllerBtn from '../controllerButton/controllerBtn';
 
 import './formControllerItem.scss';
 
-const FormControllerItem = ({ itemHeading = '', data, setData, sampleData, setSampleData }) => {
+const FormControllerItem = ({ itemHeading = '', data, setData, sampleData = null, setSampleData = null }) => {
+    const handleChangeColor = (color) => {
+        setData((prev) => ({ ...prev, color: color }));
+    };
+
     return (
         <div className="formControllerItem">
             <h3 className="itemHeading">{itemHeading}</h3>
@@ -29,35 +33,76 @@ const FormControllerItem = ({ itemHeading = '', data, setData, sampleData, setSa
                         />
                     </>
                 )}
+
                 {itemHeading === 'Font styling' && (
                     <>
-                        <ControllerBtn
-                            btnContent="Ledger"
-                            btnStyle="Ledger"
-                            btnFunc="changeFont"
-                            data={data}
-                            setData={setData}
-                            sampleData={sampleData}
-                            setSampleData={setSampleData}
-                        />
-                        <ControllerBtn
-                            btnContent="Roboto"
-                            btnStyle="Roboto"
-                            btnFunc="changeFont"
-                            data={data}
-                            setData={setData}
-                            sampleData={sampleData}
-                            setSampleData={setSampleData}
-                        />
-                        <ControllerBtn
-                            btnContent="Sono"
-                            btnStyle="Sono"
-                            btnFunc="changeFont"
-                            data={data}
-                            setData={setData}
-                            sampleData={sampleData}
-                            setSampleData={setSampleData}
-                        />
+                        <div className="first">
+                            <ControllerBtn
+                                btnContent="Ledger"
+                                btnStyle="Ledger"
+                                btnFunc="changeFont"
+                                data={data}
+                                setData={setData}
+                            />
+                            <ControllerBtn
+                                btnContent="Roboto"
+                                btnStyle="Roboto"
+                                btnFunc="changeFont"
+                                data={data}
+                                setData={setData}
+                            />
+                            <ControllerBtn
+                                btnContent="Sono"
+                                btnStyle="Sono"
+                                btnFunc="changeFont"
+                                data={data}
+                                setData={setData}
+                            />
+                        </div>
+
+                        <div className="second">
+                            <ControllerBtn
+                                btnContent="One Sans"
+                                btnStyle="AR_One_Sans"
+                                btnFunc="changeFont"
+                                data={data}
+                                setData={setData}
+                            />
+                            <ControllerBtn
+                                btnContent="Helvetica"
+                                btnStyle="Helvetica"
+                                btnFunc="changeFont"
+                                data={data}
+                                setData={setData}
+                            />
+                        </div>
+                    </>
+                )}
+                {itemHeading === 'Resume styling' && (
+                    <>
+                        <div className="first">
+                            <ControllerBtn
+                                btnContent="Minimalism"
+                                btnFunc="resumeStyle"
+                                data={data}
+                                setData={setData}
+                            />
+                            <ControllerBtn btnContent="Classic" btnFunc="resumeStyle" data={data} setData={setData} />
+                            <ControllerBtn btnContent="Modern" btnFunc="resumeStyle" data={data} setData={setData} />
+                        </div>
+                        <div className="second">
+                            <label htmlFor="colorInpController" className="colorControllerLabel">
+                                Resume color:
+                                <input
+                                    type="color"
+                                    value={data.color}
+                                    id="colorInpController"
+                                    name="colorInpController"
+                                    className="colorInpController"
+                                    onChange={(e) => handleChangeColor(e.target.value)}
+                                />
+                            </label>
+                        </div>
                     </>
                 )}
             </div>

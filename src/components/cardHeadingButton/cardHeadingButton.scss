@@ -3,18 +3,18 @@
     gap: clamp(14px, 1.6em, 18px);
     z-index: 10;
 
-    padding: $padding_md;
+    padding: $distance_md;
 
     &:has(.mainHeadingBtn) {
         width: $form_card_width;
-        padding: $padding_lg;
+        padding: $distance_lg;
         background-color: $snow_white_color;
         &:has(.expanded) {
-            border-top-left-radius: $padding_md;
-            border-top-right-radius: $padding_md;
+            border-top-left-radius: $distance_md;
+            border-top-right-radius: $distance_md;
         }
         &:not(:has(.expanded)) {
-            border-radius: $padding_md;
+            border-radius: $distance_md;
         }
     }
 }
@@ -96,5 +96,3 @@
         background-color: $primary_light_color;
     }
 }
-
-

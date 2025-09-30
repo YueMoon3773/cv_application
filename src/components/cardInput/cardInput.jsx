@@ -93,7 +93,7 @@ const CardInput = ({
         } else if (dataToChange === 'details' && inpPlaceholder === 'Your key point') {
             // for displaying the key value of data like: 'languages', 'skills', 'strengths', 'Extra details' in more
             // console.log('inp branch 3');
-            
+
             setData((prev) => ({
                 ...prev,
                 more: prev.more.map((moreItem, moreIndex) => {
@@ -186,7 +186,7 @@ const CardInput = ({
                 placeholder={inpPlaceholder}
                 value={valToDisplay}
                 required={isInpRequired}
-                onChange={(e) => handleInputChange(e.target.value.trim())}
+                onChange={(e) => handleInputChange(e.target.value.trimStart())}
             />
             <label className="inputLabel">{isInpRequired === true ? `${labelContent}*` : labelContent}</label>
             <span className="inpFocusBorders">

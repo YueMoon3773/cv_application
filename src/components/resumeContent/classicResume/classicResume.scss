@@ -1,0 +1,76 @@
+.classicResumeWrapper {
+    @include flexColumn;
+    font-size: inherit;
+
+    & > * {
+        width: 100%;
+    }
+}
+
+.classicSection {
+    @include flexColumn;
+    font-size: inherit;
+
+    &:not(:first-child) {
+        margin-top: $resume_distance_xl;
+    }
+}
+
+.classicSectionHeading {
+    @include fonts;
+    font-size: $resume_fs_normal_xl;
+    font-weight: 600;
+    color: $black_text;
+    text-transform: uppercase;
+    letter-spacing: 1.66px;
+    margin-bottom: $resume_distance_md;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        left: 0;
+        bottom: calc(0px - $minimalism_resume_divided_line_height);
+        width: 100%;
+        height: $minimalism_resume_divided_line_height;
+        background-color: var(--user_darker_color);
+        // opacity: 0.96
+    }
+}
+
+.classicContent {
+    @include flexColumn;
+    font-size: inherit;
+    gap: $resume_distance_ssm;
+}
+
+.classicName {
+    @include fonts;
+    font-size: $resume_fs_normal_md;
+    font-weight: 600;
+    color: $black_text;
+}
+
+.classicProfile,
+.classicContactItem {
+    @include fonts;
+    color: $black_text;
+    font-size: $resume_fs_normal_sm;
+    text-align: justify;
+}
+
+.educationsAndExperiencesContent {
+    @include flexColumn;
+    font-size: inherit;
+    gap: $resume_distance_xxxl;
+}
+
+.moreContentList{
+    font-size: inherit;
+}
+
+.moreContentItem {
+    color: $black_text;
+    font-size: $resume_fs_normal_sm;
+}

@@ -1,6 +1,6 @@
 .formCard {
     @include flexColumn;
-    filter: drop-shadow(0 3px 6px rgba(#000, $alpha: 0.36));
+    filter: $app_primary_filter_shadow;
 }
 
 .formContent {
@@ -17,10 +17,10 @@
         @include normalAnimation;
         transform-origin: top;
 
-        padding: $padding_md $padding_xl;
-        padding-bottom: $padding_xxl;
-        border-bottom-left-radius: $padding_md;
-        border-bottom-right-radius: $padding_md;
+        padding: $distance_md $distance_xl;
+        padding-bottom: $distance_xxl;
+        border-bottom-left-radius: $distance_md;
+        border-bottom-right-radius: $distance_md;
 
         & > *:first-child {
             // margin-top: clamp(6px, 0.6em, 8px);

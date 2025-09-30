@@ -4,37 +4,47 @@
     @include flexColumn;
     top: 0;
     height: 100vh;
+    width: calc($resume_preview_max_height * $resume_ratio);
+    flex-shrink: 0;
+    container-type: inline-size;
 }
 
 .resumeDisplay {
-    // position: sticky;
+    position: sticky;
     @include flexColumn;
+    // position: relative;
     top: 0;
     height: 100%;
-    background-color: rgb(251, 189, 189);
+    // background-color: rgb(251, 189, 189);
+}
+
+.displayText {
+    // position: relative;
+    top: 2rem;
+    font-size: $fs_normal_lg;
+    margin: $resume_heading_position;
+    cursor: default;
+    color: $primary_dark_color;
 }
 
 .resume {
     // width: 100%;
-    position: sticky;
+    // position: sticky;
+    // position: relative;
     font-size: 1rem;
-    top: 2rem;
+    // top: 2.5rem;
     height: $resume_preview_max_height;
     width: calc($resume_preview_max_height * $resume_ratio);
+    padding: $resume_padding;
     aspect-ratio: 1 / 1.42;
 
+    filter: $app_primary_filter_shadow;
+    overflow-y: auto;
+
     background-color: $white_color;
-}
+    font-size: 1.6cqh;
 
-#measureBox {
-    position: absolute;
-    width: 100%;
-    visibility: hidden;
-    top: -9999px;
-
-    & > .resume {
-        width: calc($resume_preview_max_height * $resume_ratio);
-        aspect-ratio: 1 / 1.42;
-        background-color: blue;
+    &:has(.modernResumeWrapper) {
+        padding: 0;
     }
 }

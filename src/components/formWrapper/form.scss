@@ -2,15 +2,15 @@
     font-size: 1rem;
     @include flexColumn;
     align-self: flex-start;
-    gap: clamp(26px, 2.8em, 30px);
-    margin-bottom: clamp(46px, 4.6em, 50px);
+    gap: $form_card_section_gap;
+    margin-bottom: $form_margin_bottom;
 }
 
 .formHeader {
     @include flexColumn;
     @include flexCenter;
     gap: max(0px, 1.2em);
-    margin: clamp(46px, 4.66em, 50px) 0 clamp(20px, 2em, 26px);
+    margin: $form_header_margin;
     cursor: default;
 }
 

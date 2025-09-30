@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 import dataStructure from '../../assets/data/dataStructure';
 // import databaseSampleData from '../../assets/data/dataSample';
@@ -12,15 +14,14 @@ const ControllerBtn = ({
     btnContent,
     btnStyle = '',
     btnFunc = '',
-    handleOnClick = null,
     data,
     setData,
-    sampleData,
-    setSampleData,
+    sampleData = null,
+    setSampleData = null,
 }) => {
     const handleClickBtn = (e, btnStyle = '', btnFunc) => {
         if (btnFunc === 'clearAll') {
-            if (window.confirm('This will CLEAR ALL form data. All entered details will be deleted..')) {
+            if (window.confirm('This will CLEAR ALL form data. All entered details will be deleted.')) {
                 setData({ ...dataStructure });
             } else return;
         } else if (btnFunc === 'sampleResume') {
@@ -48,6 +49,33 @@ const ControllerBtn = ({
                 setData((prev) => ({ ...prev, font: 'Roboto' }));
             } else if (btnStyle === 'Sono') {
                 setData((prev) => ({ ...prev, font: 'Sono' }));
+            } else if (btnStyle === 'AR_One_Sans') {
+                setData((prev) => ({ ...prev, font: 'AR_One_Sans' }));
+            } else if (btnStyle === 'Helvetica') {
+                setData((prev) => ({ ...prev, font: 'Helvetica' }));
+            }
+        } else if (btnFunc === 'resumeStyle') {
+            if (btnContent === 'Minimalism') {
+                setData((prev) => {
+                    return {
+                        ...prev,
+                        style: 'Minimalism',
+                    };
+                });
+            } else if (btnContent === 'Classic') {
+                setData((prev) => {
+                    return {
+                        ...prev,
+                        style: 'Classic',
+                    };
+                });
+            } else if (btnContent === 'Modern') {
+                setData((prev) => {
+                    return {
+                        ...prev,
+                        style: 'Modern',
+                    };
+                });
             }
         }
     };
@@ -55,7 +83,9 @@ const ControllerBtn = ({
 
     return (
         <button
-            className={`controllerBtn ${btnStyle} ${data.font === btnStyle ? 'active' : ''}`}
+            className={`controllerBtn ${btnStyle} ${
+                data.font === btnStyle || data.style === btnContent ? 'active' : ''
+            }`}
             onClick={(e) => {
                 handleClickBtn(e, btnStyle, btnFunc);
             }}
@@ -66,18 +96,26 @@ const ControllerBtn = ({
                     {btnContent}
                 </>
             )}
+
             {btnContent === 'Sample resume' && (
                 <>
                     <SampleFormIcon />
                     {btnContent}
                 </>
             )}
-            {btnContent !== 'Clear all' && btnContent !== 'Sample resume' && (
-                <>
-                    <span>Aa</span>
-                    {btnContent}
-                </>
-            )}
+
+            {(btnContent === 'Minimalism' || btnContent === 'Classic' || btnContent === 'Modern') && btnContent}
+
+            {btnContent !== 'Clear all' &&
+                btnContent !== 'Sample resume' &&
+                btnContent !== 'Minimalism' &&
+                btnContent !== 'Classic' &&
+                btnContent !== 'Modern' && (
+                    <>
+                        <span>Aa</span>
+                        {btnContent}
+                    </>
+                )}
         </button>
     );
 };
