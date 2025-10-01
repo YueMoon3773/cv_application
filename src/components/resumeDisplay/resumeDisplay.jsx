@@ -7,9 +7,9 @@ import ModernResume from '../resumeContent/modernResume/modernResume';
 
 import './resumeDisplay.scss';
 
-const ResumeDisplay = ({ data }) => {
+const ResumeDisplay = ({ data, isShowResume }) => {
     return (
-        <div className="sideWrapper">
+        <div className={`sideWrapper resumeWrapper ${isShowResume === true ? '' : 'hide'}`}>
             <div className="resumeDisplay">
                 <h4 className="displayText">Resume preview</h4>
                 <div className="resume">

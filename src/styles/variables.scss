@@ -70,8 +70,8 @@ $form_heading_btn_padding: clamp(12px, 1.26em, 14px) clamp(4px, 5.6em, 6px) clam
 $form_controller_heading_top: clamp(-18px, 2em, -20px);
 $form_controller_heading_left: clamp(12px, 1.4em, 14px);
 
-// $form_card_width: max(560px, 580px);
-$form_card_width: max(420px, 580px);
+$form_card_width: max(560px, 580px);
+// $form_card_width: max(420px, 40%);
 $form_card_content_row_gap: clamp(26px, 2.66em, 28px);
 $form_card_content_column_gap: clamp(14px, 1.6em, 18px);
 $form_card_sections_gap: clamp(20px, 2.4em, 26px);
@@ -113,7 +113,7 @@ $resume_distance_sm: 0.2em;
 $resume_distance_ssm: 0.1em;
 $resume_distance_sssm: 0.06em;
 
-$minimalism_resume_divided_line_height: 1.5px;
+$minimalism_resume_divided_line_height: 2px;
 
 /* =============================================== */
 /* FUNCTIONS SETUP  */

@@ -10,19 +10,24 @@ import databaseSampleData from './assets/data/dataSample';
 import './App.scss';
 
 function App() {
-    // const [data, setData] = useState(dataStructure);
-    const [data, setData] = useState(databaseSampleData.sampleData1);
-    // const [data, setData] = useState(databaseSampleData.testData);
-
+    const [data, setData] = useState(dataStructure);
+    // const [data, setData] = useState(databaseSampleData.sampleData1);
     const [sampleData, setSampleData] = useState(databaseSampleData);
+    const [isShowResume, setIsShowResume] = useState(false);
 
     console.log(data);
 
     return (
         <div className="app">
-            <SideControllers />
-            <FormWrapper data={data} setData={setData} sampleData={sampleData} setSampleData={setSampleData} />
-            <ResumeDisplay data={data} />
+            <SideControllers setIsShowResume={setIsShowResume} />
+            <FormWrapper
+                data={data}
+                setData={setData}
+                sampleData={sampleData}
+                setSampleData={setSampleData}
+                isShowResume={isShowResume}
+            />
+            <ResumeDisplay data={data} isShowResume={isShowResume} />
         </div>
     );
 }

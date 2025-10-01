@@ -6,7 +6,8 @@
     padding: $distance_md;
 
     &:has(.mainHeadingBtn) {
-        width: $form_card_width;
+        // width: $form_card_width;
+        width: 100%;
         padding: $distance_lg;
         background-color: $snow_white_color;
         &:has(.expanded) {

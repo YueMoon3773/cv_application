@@ -25,7 +25,8 @@
     }
 
     &:has(span) {
-        width: max(100px, 120px);
+        // width: max(100px, 120px);
+        width: max(80px, 24%);
         height: 82px;
         @include flexColumn;
         font-size: $fs_normal_lg;

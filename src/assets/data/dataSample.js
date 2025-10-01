@@ -1,6 +1,6 @@
 const sampleData1 = {
     font: 'Ledger',
-    style: 'Modern',
+    style: 'Minimalism',
     color: '#3081b0',
     firstName: 'Mike',
     lastName: 'Wazowski',
@@ -140,7 +140,7 @@ const sampleData1 = {
 };
 const sampleData2 = {
     font: 'Ledger',
-    style: 'Minimalism',
+    style: 'Classic',
     color: '#3081b0',
     firstName: 'James P.',
     lastName: 'Sullivan',

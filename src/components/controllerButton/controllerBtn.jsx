@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
 
 import dataStructure from '../../assets/data/dataStructure';
 // import databaseSampleData from '../../assets/data/dataSample';

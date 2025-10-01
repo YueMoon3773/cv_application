@@ -2,7 +2,7 @@
     width: 100%;
     @include flexCenter;
     justify-content: space-between;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
 
     & > *:first-child {
         width: $form_inp_key_point_width;

@@ -6,9 +6,9 @@ import { GithubIcon } from '../../assets/data/svgIcons';
 
 import './form.scss';
 
-const FormWrapper = ({ data, setData, sampleData, setSampleData }) => {
+const FormWrapper = ({ data, setData, sampleData, setSampleData, isShowResume }) => {
     return (
-        <div className="sideWrapper formWrapper">
+        <div className={`sideWrapper formWrapper ${isShowResume === true ? 'hide' : ''}`}>
             <div className="formHeader">
                 <h1 className="formHeading">
                     <FormHeadingIcon className={'formHeadingIcon'} />

@@ -8,6 +8,8 @@
     border-radius: 12px;
     @include normalTransition;
 
+    @include flexCenter;
+
     svg {
         height: $fs_heading_sm;
     }
@@ -18,6 +20,14 @@
     }
 
     &.preview {
+        display: none;
+    }
+
+    & .sideBtnText {
+        font-size: $fs_normal_lg;
+        font-weight: 600;
+        color: $white_text;
+        margin-left: clamp(6px, 0.66em, 8px);
         display: none;
     }
 }

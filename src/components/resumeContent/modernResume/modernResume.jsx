@@ -1,3 +1,5 @@
+import { mix } from 'polished';
+
 import { GithubIcon, EmailIcon, WebIcon, PhoneIcon, LocationIcon } from '../../../assets/data/svgIcons';
 
 import ResumeEducationAndExperiences from '../resumeEducationAndExperiences/resumeEducationAndExperiences';
@@ -5,17 +7,24 @@ import ResumeEducationAndExperiences from '../resumeEducationAndExperiences/resu
 import './modernResume.scss';
 
 const ModernResume = ({ data }) => {
+    const lightest = mix(0.86, '#fff', data.color).toString();
+    const lighter = mix(0.6, '#fff', data.color).toString();
+    const light = mix(0.2, '#fff', data.color).toString();
+    const dark = mix(0.2, '#000', data.color).toString();
+    const darker = mix(0.4, '#000', data.color).toString();
+    const darkest = mix(0.8, '#000', data.color).toString();
+
     return (
         <div
             className="modernResumeWrapper"
             style={{
                 '--user_color': data.color,
-                '--user_lightest_color': `color-mix(in srgb, ${data.color} 16%, white)`,
-                '--user_lighter_color': `color-mix(in srgb, ${data.color} 40%, white)`,
-                '--user_light_color': `color-mix(in srgb, ${data.color} 80%, white)`,
-                '--user_dark_color': `color-mix(in srgb, ${data.color} 80%, black)`,
-                '--user_darker_color': `color-mix(in srgb, ${data.color} 60%, black)`,
-                '--user_darkest_color': `color-mix(in srgb, ${data.color} 20%, black)`,
+                '--user_lightest_color': lightest,
+                '--user_lighter_color': lighter,
+                '--user_light_color': light,
+                '--user_dark_color': dark,
+                '--user_darker_color': darker,
+                '--user_darkest_color': darkest,
             }}
         >
             {(data.firstName !== '' || data.lastName !== '' || data.jobTitle !== '') && (

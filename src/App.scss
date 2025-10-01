@@ -2,13 +2,136 @@
     width: 100%;
     min-height: 100vh;
     position: relative;
-    @include flexCenter;
-    gap: clamp(50px, 5.5em, 66px);
+    // @include flexCenter;
+    @include displayGrid;
+    grid-template-columns: 0.75fr 6fr 0.5fr 6fr 0.75fr;
+    // gap: clamp(50px, 5.5em, 66px);
 
     background-color: $gray_color;
     // overflow-y: auto;
 
     .sideWrapper {
         @include flexColumn;
+        justify-self: stretch;
+    }
+
+    & > .formWrapper {
+        grid-column: 2 / 3;
+    }
+    & > .resumeWrapper {
+        grid-column: 4 / 5;
+    }
+}
+
+@media (max-width: 1200px) {
+    .app {
+        grid-template-columns: 1.5fr 6fr 1.5fr;
+
+        & > .formWrapper,
+        & > .resumeWrapper {
+            grid-column: 2 / 3;
+            margin-bottom: calc($form_margin_bottom * 160 / 100);
+        }
+    }
+
+    .sideWrapper.hide {
+        display: none;
+    }
+
+    .sideControllersWrapper {
+        grid-column: 1 / 4;
+        width: 100%;
+        position: fixed;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        height: 50px;
+        @include flexCenter;
+        flex-direction: row;
+        justify-content: space-around;
+        background-color: $primary_color;
+        filter: $app_primary_filter_shadow;
+
+        & .sideBtn {
+            background-color: transparent;
+            border: none;
+
+            svg {
+                color: $white_text;
+            }
+
+            &.preview {
+                display: flex;
+            }
+
+            &:hover {
+                color: $white_text;
+                border: none;
+                transform: scale(1.06);
+            }
+        }
+
+        & .sideBtnText {
+            display: block;
+        }
+    }
+}
+
+@media (max-width: 720px) {
+    .app {
+        // grid-template-columns: 1fr 6fr 1fr;
+        @include flexCenter;
+        & > .sideWrapper {
+            width: 90vw;
+
+            & > .resumeDisplay {
+                width: 100%;
+
+                & > .resume {
+                    width: 100%;
+                    height: auto;
+                    font-size: 3cqw;
+                }
+            }
+        }
+    }
+
+    .formSlogan {
+        font-size: calc($fs_normal_lg * 80 / 100);
+    }
+
+    .controllerItemContent {
+        @include flexColumn;
+        gap: $form_card_content_row_gap;
+
+        & .first,
+        & .second {
+            @include flexColumn;
+            gap: $form_card_content_column_gap;
+        }
+    }
+
+    .controllerBtn {
+        width: 100%;
+        &:has(span) {
+            width: 100%;
+        }
+    }
+
+    .formContent.expanded:has(.personalInfo) {
+        .personalInfo {
+            @include flexColumn;
+        }
+    }
+
+    .largeItemFirstRow,
+    .largeItemSecondRow {
+        @include flexColumn;
+        gap: $form_card_content_row_gap;
+
+        & > * {
+            flex: none;
+            width: 100%;
+        }
     }
 }
