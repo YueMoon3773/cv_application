@@ -124,6 +124,12 @@
         }
     }
 
+    .cardHeadingButton {
+        & > div {
+            max-width: 86%;
+        }
+    }
+
     .largeItemFirstRow,
     .largeItemSecondRow {
         @include flexColumn;
