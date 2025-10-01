@@ -37,7 +37,7 @@ It offers real-time resume preview, multiple styling options, and instant downlo
 - Further improve resume preview logic.
 ## 🌍 Live Demo
 
-Try out the Resume Generator – CVify right away: [Live demo link](https://yuemoon3773.github.io/battleship_game/)
+Try out the Resume Generator – CVify right away: [Live demo link](https://cvifyresumegenerator.vercel.app/)
 ## ⚓ Acknowledgements  
 
 - Weather icons and SVG images are created by [pictogrammers](https://pictogrammers.com/)
