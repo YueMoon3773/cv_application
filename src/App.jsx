@@ -15,7 +15,7 @@ function App() {
     const [sampleData, setSampleData] = useState(databaseSampleData);
     const [isShowResume, setIsShowResume] = useState(false);
 
-    console.log(data);
+    // console.log(data);
 
     return (
         <div className="app">
