@@ -4,7 +4,7 @@
     position: relative;
     // @include flexCenter;
     @include displayGrid;
-    grid-template-columns: 0.75fr 6fr 0.5fr 6fr 0.75fr;
+    grid-template-columns: 0.75fr 6fr 0.5fr 4fr 0.75fr;
     // gap: clamp(50px, 5.5em, 66px);
 
     background-color: $gray_color;
@@ -20,6 +20,7 @@
     }
     & > .resumeWrapper {
         grid-column: 4 / 5;
+        justify-self: center;
     }
 }
 
@@ -68,6 +69,13 @@
                 color: $white_text;
                 border: none;
                 transform: scale(1.06);
+            }
+
+            &.active {
+                & > span,
+                & > svg {
+                    color: $active_style_btn;
+                }
             }
         }
 

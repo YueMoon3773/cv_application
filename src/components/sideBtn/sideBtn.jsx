@@ -6,7 +6,7 @@ import { PreviewIcon, DownloadIcons, PrinterIcon } from '../../assets/data/svgIc
 
 import './sideBtn.scss';
 
-const SideBtn = ({ btnType = '', setIsShowResume }) => {
+const SideBtn = ({ btnType = '', isShowResume, setIsShowResume }) => {
     const handleExportPDF = async () => {
         const element = document.querySelector('.resumeDisplay .resume');
 
@@ -55,7 +55,7 @@ const SideBtn = ({ btnType = '', setIsShowResume }) => {
 
     return (
         <button
-            className={`sideBtn ${btnType}`}
+            className={`sideBtn ${btnType} ${btnType === 'preview' && isShowResume === true ? 'active' : ''}`}
             onClick={() => {
                 if (btnType === 'download') {
                     alert('Your resume is being created, please wait a moment...');

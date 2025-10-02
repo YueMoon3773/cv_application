@@ -19,7 +19,7 @@ function App() {
 
     return (
         <div className="app">
-            <SideControllers setIsShowResume={setIsShowResume} />
+            <SideControllers isShowResume={isShowResume} setIsShowResume={setIsShowResume} />
             <FormWrapper
                 data={data}
                 setData={setData}
